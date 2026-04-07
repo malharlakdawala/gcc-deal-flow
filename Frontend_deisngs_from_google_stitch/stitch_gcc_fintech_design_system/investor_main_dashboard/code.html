@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', 'Noto Sans Arabic', sans-serif;
+            background-color: #071325;
+        }
+        .tabular-nums { font-variant-numeric: tabular-nums; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-card {
+            background: rgba(42, 53, 72, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #E6C364 0%, #C9A84C 100%);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, rgba(230, 195, 100, 0.1) 25%, rgba(230, 195, 100, 0.3) 50%, rgba(230, 195, 100, 0.1) 75%);
+            background-size: 200% 100%;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#adc6ff",
+                        "surface-dim": "#071325",
+                        "inverse-surface": "#d7e3fc",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#1f2a3d",
+                        "primary-container": "#c9a84c",
+                        "tertiary": "#6cd9cb",
+                        "tertiary-fixed": "#89f5e7",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#e6c364",
+                        "surface-bright": "#2e394d",
+                        "on-primary": "#3d2e00",
+                        "surface-container-highest": "#2a3548",
+                        "on-background": "#d7e3fc",
+                        "inverse-on-surface": "#253144",
+                        "surface-container-low": "#101c2e",
+                        "on-primary-container": "#503d00",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-surface": "#d7e3fc",
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "on-secondary-container": "#e6ecff",
+                        "primary": "#e6c364",
+                        "on-primary-fixed": "#241a00",
+                        "on-secondary-fixed-variant": "#004395",
+                        "on-tertiary-container": "#004942",
+                        "secondary-container": "#0566d9",
+                        "surface-variant": "#2a3548",
+                        "on-surface-variant": "#d0c5b2",
+                        "on-tertiary": "#003732",
+                        "surface-container": "#142032",
+                        "outline-variant": "#4d4637",
+                        "primary-fixed": "#ffe08f",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "tertiary-container": "#4dbdb0",
+                        "on-secondary": "#002e6a",
+                        "outline": "#99907e",
+                        "background": "#071325",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-container-lowest": "#030e20",
+                        "surface": "#071325",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-tertiary-fixed": "#00201d",
+                        "on-error": "#690005",
+                        "inverse-primary": "#755b00",
+                        "primary-fixed-dim": "#e6c364",
+                        "on-secondary-fixed": "#001a42"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-[#071325]/60 backdrop-blur-xl flex justify-between items-center px-8 h-20 w-full shadow-[0_32px_32px_rgba(7,19,37,0.06)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-semibold tracking-tight text-[#E6C364]">Al-Mawarid Financial</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-[#E6C364] font-bold border-b-2 border-[#E6C364] pb-1 font-['Inter'] text-[15px]" href="#">Dashboard</a>
+<a class="text-slate-400 font-medium hover:text-[#E6C364] hover:bg-white/5 transition-all duration-300 font-['Inter'] text-[15px]" href="#">Deal Feed</a>
+<a class="text-slate-400 font-medium hover:text-[#E6C364] hover:bg-white/5 transition-all duration-300 font-['Inter'] text-[15px]" href="#">Portfolio</a>
+<a class="text-slate-400 font-medium hover:text-[#E6C364] hover:bg-white/5 transition-all duration-300 font-['Inter'] text-[15px]" href="#">Intelligence</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-primary transition-colors flex items-center gap-1 font-medium">
+<span class="text-xs">EN</span>
+<span class="text-xs text-slate-600">|</span>
+<span class="text-xs font-['Noto_Sans_Arabic']">عربي</span>
+</button>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">notifications</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">settings</span>
+<button class="gold-gradient text-on-primary px-5 py-2 rounded-xl font-bold text-sm active:scale-95 duration-200">Invest Now</button>
+<img alt="Investor Profile" class="w-10 h-10 rounded-full border border-primary/20 object-cover" data-alt="Close-up professional portrait of a distinguished middle-aged male investor in a luxury office setting with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj9684WL9wEWAZDZQAyxmB_9fz-hefEAlqdjoazZ0QYN2PEmrbfbJ7WnrcKgkFCvAEYliGxfrgeZdCGErvQ6tUd9VZdw3DgLc9tgmQHB10m3ZpQWEYyYX9oQRgkSY4KEyDmeT7RfWhpNHpuxc-StsZw9j1N-_AmfROFFfHTN3eLfqqmFDE2VzTvCDm8t3nzljYw4DniHHn2pHX9nlFuOZyx8jBLg5D7MIDoy_Sk16JFvXPvytcbiEoEqGIdJL9bLNNvmtwaJ0iGfo"/>
+</div>
+</nav>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-20 h-[calc(100vh-80px)] w-[240px] bg-[#071325] border-r border-[#E6C364]/10 flex flex-col py-8 gap-y-6 hidden lg:flex">
+<div class="px-6 mb-4">
+<h3 class="text-lg font-bold text-[#E6C364]">The Sovereign Ledger</h3>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-widest mt-1">Private Concierge</p>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3 px-6 py-3 text-[#E6C364] bg-gradient-to-r from-[#E6C364]/10 to-transparent border-l-4 border-[#E6C364] cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Inter'] font-medium text-sm">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#E6C364]/5 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Inter'] font-medium text-sm">Deal Feed</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#E6C364]/5 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Inter'] font-medium text-sm">Portfolio</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#E6C364]/5 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-['Inter'] font-medium text-sm">Intelligence</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#E6C364]/5 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-['Inter'] font-medium text-sm">Messages</span>
+</div>
+</div>
+<div class="mt-auto flex flex-col gap-1">
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#E6C364]/5 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-['Inter'] font-medium text-sm">Support</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-[#E6C364]/5 cursor-pointer transition-all duration-300">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-['Inter'] font-medium text-sm">Sign Out</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-[240px] flex-1 p-8">
+<!-- TOP SECTION — AI Daily Deal Digest -->
+<section class="mb-10">
+<div class="flex items-center gap-3 mb-6">
+<h1 class="text-3xl font-bold tracking-tight">Your Morning Deal Digest <span class="text-slate-500 font-normal">— Friday 3 April</span></h1>
+<span class="bg-secondary text-on-secondary px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest">AI</span>
+</div>
+<div class="flex overflow-x-auto gap-6 pb-4 scrollbar-hide">
+<!-- Deal Card 1 -->
+<div class="min-w-[420px] bg-surface-container-low rounded-xl p-6 border-l-4 border-secondary relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full border-4 border-tertiary flex items-center justify-center">
+<span class="text-2xl font-bold tabular-nums">94</span>
+</div>
+<span class="text-[10px] text-tertiary mt-1 font-bold">AI MATCH</span>
+</div>
+</div>
+<div class="shimmer rounded-lg p-2 inline-block mb-3">
+<span class="text-xl font-bold text-primary blur-[2px] select-none">UAE Healthcare SME</span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-xs font-semibold">Equity Raise</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-xs font-semibold tabular-nums">AED 20M–50M</span>
+</div>
+<p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+                            Matches your F&amp;B mandate: 28% EBITDA CAGR, below your AED 30M ticket threshold.
+                        </p>
+<div class="flex gap-3">
+<button class="gold-gradient text-on-primary px-6 py-2 rounded-lg font-bold text-sm active:scale-95 duration-200">Request NDA</button>
+<button class="text-primary hover:bg-primary/10 px-6 py-2 rounded-lg font-bold text-sm transition-colors border border-primary/20">Save to Watchlist</button>
+</div>
+</div>
+<!-- Deal Card 2 -->
+<div class="min-w-[420px] bg-surface-container-low rounded-xl p-6 border-l-4 border-secondary relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full border-4 border-tertiary/60 flex items-center justify-center">
+<span class="text-2xl font-bold tabular-nums">88</span>
+</div>
+<span class="text-[10px] text-tertiary mt-1 font-bold">AI MATCH</span>
+</div>
+</div>
+<div class="shimmer rounded-lg p-2 inline-block mb-3">
+<span class="text-xl font-bold text-primary blur-[2px] select-none">KSA Logistics Tech</span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-xs font-semibold">Series B</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-xs font-semibold tabular-nums">AED 15M–25M</span>
+</div>
+<p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+                            Strong regional expansion play into Qatar/Oman. Founders have previous exit in mobility space.
+                        </p>
+<div class="flex gap-3">
+<button class="gold-gradient text-on-primary px-6 py-2 rounded-lg font-bold text-sm active:scale-95 duration-200">Request NDA</button>
+<button class="text-primary hover:bg-primary/10 px-6 py-2 rounded-lg font-bold text-sm transition-colors border border-primary/20">Save to Watchlist</button>
+</div>
+</div>
+<!-- Deal Card 3 -->
+<div class="min-w-[420px] bg-surface-container-low rounded-xl p-6 border-l-4 border-secondary relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full border-4 border-tertiary/40 flex items-center justify-center">
+<span class="text-2xl font-bold tabular-nums">82</span>
+</div>
+<span class="text-[10px] text-tertiary mt-1 font-bold">AI MATCH</span>
+</div>
+</div>
+<div class="shimmer rounded-lg p-2 inline-block mb-3">
+<span class="text-xl font-bold text-primary blur-[2px] select-none">Oman AgriTech Hub</span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-xs font-semibold">Pre-IPO</span>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full text-xs font-semibold tabular-nums">AED 100M+</span>
+</div>
+<p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+                            High alignment with Sustainability mandate. Proprietary hydroponic IP with government offtake.
+                        </p>
+<div class="flex gap-3">
+<button class="gold-gradient text-on-primary px-6 py-2 rounded-lg font-bold text-sm active:scale-95 duration-200">Request NDA</button>
+<button class="text-primary hover:bg-primary/10 px-6 py-2 rounded-lg font-bold text-sm transition-colors border border-primary/20">Save to Watchlist</button>
+</div>
+</div>
+</div>
+</section>
+<!-- PORTFOLIO SUMMARY ROW -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<div class="bg-surface-container-low p-6 rounded-xl relative overflow-hidden">
+<p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Total Invested</p>
+<div class="flex items-baseline gap-2">
+<h4 class="text-3xl font-bold tabular-nums mono text-on-surface">AED 12.5M</h4>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl relative overflow-hidden">
+<p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Portfolio IRR</p>
+<div class="flex items-baseline gap-2">
+<h4 class="text-3xl font-bold tabular-nums mono text-on-surface">18.4%</h4>
+<span class="text-[10px] text-tertiary font-medium">vs GCC benchmark: 14.2%</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl relative overflow-hidden">
+<p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Active Deals</p>
+<div class="flex items-baseline gap-2">
+<h4 class="text-3xl font-bold tabular-nums mono text-on-surface">7</h4>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl relative overflow-hidden">
+<p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Unrealized Gain</p>
+<div class="flex items-baseline gap-2">
+<h4 class="text-3xl font-bold tabular-nums mono text-tertiary">+AED 2.1M</h4>
+</div>
+</div>
+</section>
+<!-- MAIN CONTENT — TWO COLUMN LAYOUT -->
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- LEFT PANEL (60%) -->
+<div class="lg:w-3/5 space-y-8">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="text-2xl font-bold">Deal Explorer</h2>
+<div class="flex items-center gap-1 text-primary text-sm font-medium cursor-pointer">
+<span>Advanced Filters</span>
+<span class="material-symbols-outlined text-sm">tune</span>
+</div>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-xl px-12 py-4 text-sm focus:ring-2 focus:ring-primary/50 text-on-surface placeholder-slate-500" placeholder="Search deals... (e.g. 'profitable F&amp;B in UAE under AED 20M')" type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-full text-xs font-bold">Deal Type</button>
+<button class="bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-bold transition-colors">Sector</button>
+<button class="bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-bold transition-colors">Country</button>
+<button class="bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-bold transition-colors">Revenue Range</button>
+<button class="bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-bold transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm leading-none">star</span>
+                                Sharia
+                            </button>
+<button class="bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest px-4 py-1.5 rounded-full text-xs font-bold transition-colors">Stage</button>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Deal Card 1 -->
+<div class="bg-surface-container-low rounded-xl p-6 group hover:bg-surface-container hover:shadow-2xl transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">factory</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-lg blur-[3px]">Dub-Engines Mfg</h3>
+<span class="bg-tertiary/10 text-tertiary text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[12px]">circle</span>
+                                                Sharia Compliant
+                                            </span>
+</div>
+<p class="text-xs text-slate-500">Industrial • Dubai, UAE</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-slate-500 font-medium uppercase tracking-widest">Seeking</p>
+<p class="font-bold tabular-nums mono text-primary">AED 12M</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 mb-6">
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">Revenue</p>
+<p class="text-sm font-bold tabular-nums">AED 45M</p>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">EBITDA</p>
+<p class="text-sm font-bold tabular-nums">18%</p>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">Burn Rate</p>
+<p class="text-sm font-bold tabular-nums">N/A</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-low object-cover" data-alt="Portrait of a successful male venture capitalist in professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGnVTlxEJpajHCBJizdlZdyw-Sdy3wwBEQ1dLFiIr_sPAO2g3DKAjZhDIyntlGOEzljJGs15jnNjP74LqAh2AOq6E80iFBWnS6e8w4AJDuzjwDy4KsdtrCpKgwmLUbZtZyXxNIj6DbUFQeV999R9meFnHfLjfnFi-RicZ4n1DnBIvfoyOX7eIJgqqMJscmprEGib-Pk1HfGcthUVVgSL-RXyEOHFLlUKBAGnoR9YuvaL6WTYi1RieO_N8CwpDH3KB9dh7a-yJ1huo"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-low object-cover" data-alt="Portrait of a sophisticated female high net worth investor with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUxM0Ep7Sb12K713VzFTKz9hjvabiTPrOjdKxrzJZ9TSJuZ-rUkVAlMw_BEBdQYq9hwsVc-rslRJmC4j-3J-Kd2mkJAAxw0Hs6c4uBZc1x1FsBKsBWN5ECB05AF2q9-MEhFw1QJQWeFYxCqlEhTrv6kXb2tuIT_qLDP5JAH23Ojh0oyE9_49MMGYfbSLTGCeyrWnzdBRPOHiB5RjUZkngUPB280QwsIsywLKxy8yAOSev1soQL10AFhXFw1GFPGpHQ7j1jV1q__J0"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-low bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-slate-400">+12</div>
+</div>
+<button class="text-primary hover:text-white transition-colors text-sm font-bold flex items-center gap-1">
+                                    View Deal Memo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Deal Card 2 -->
+<div class="bg-surface-container-low rounded-xl p-6 group hover:bg-surface-container hover:shadow-2xl transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">shopping_basket</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-lg blur-[3px]">Desert-Harvest Retail</h3>
+</div>
+<p class="text-xs text-slate-500">Retail Tech • Riyadh, KSA</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-slate-500 font-medium uppercase tracking-widest">Seeking</p>
+<p class="font-bold tabular-nums mono text-primary">AED 8.5M</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 mb-6">
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">Revenue</p>
+<p class="text-sm font-bold tabular-nums">AED 12M</p>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">EBITDA</p>
+<p class="text-sm font-bold tabular-nums">12%</p>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">Growth</p>
+<p class="text-sm font-bold tabular-nums">140% YoY</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-low object-cover" data-alt="Corporate headshot of an experienced executive in the finance sector" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUVYuOVMKhoM_pK6xth_bZeWr2GiNuTy1QwR2ug_la2mFR5WreeNsmWbkWhBYWTLKxgrh8I7WbqiEd15bIZKQv58ywHgNo2fQqcLd6EGq4GtH69ZlIw9CfgZ316ojf1W9nQ5zzAQdIUTDFYVyCJcz2IbL2i9vclOOMJxnKW5r5ljQIR5xFs8uTnw9M0MNvZsUuSaqTqZvYj0-k2yyC2Dcju55SSoA19xTiKgNZFR9Q9baTW3DBMoZKOh_uY-GzX56rNA4ggBpO5GI"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-low bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-slate-400">+3</div>
+</div>
+<button class="text-primary hover:text-white transition-colors text-sm font-bold flex items-center gap-1">
+                                    View Deal Memo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Deal Card 3 -->
+<div class="bg-surface-container-low rounded-xl p-6 group hover:bg-surface-container hover:shadow-2xl transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-lg blur-[3px]">Oasis-Pay Fintech</h3>
+<span class="bg-tertiary/10 text-tertiary text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[12px]">circle</span>
+                                                Sharia Compliant
+                                            </span>
+</div>
+<p class="text-xs text-slate-500">Fintech • Manama, Bahrain</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-slate-500 font-medium uppercase tracking-widest">Seeking</p>
+<p class="font-bold tabular-nums mono text-primary">AED 5.2M</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4 mb-6">
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">Volume</p>
+<p class="text-sm font-bold tabular-nums">AED 200M/mo</p>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">Rev Share</p>
+<p class="text-sm font-bold tabular-nums">Yes</p>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] text-slate-500 uppercase font-bold">MoM Growth</p>
+<p class="text-sm font-bold tabular-nums">22%</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-low object-cover" data-alt="Professional portrait of a female fintech expert in a minimalist office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8yOQxt8mk20YtEvFtIZDgB6HmTTnJ0lZZSfYfpH0_L8kukaQ9V2VUZDsKfw46vRU-3nNCoIe2e_3i0JTYtJeAVtQb65ZYDqLcHBhOTe8QsUjYGFTwI7olFEH9nxEc2DXYzJI776B2HWMX6XiaHDwDmLyPVDa0AXidlUtDxy6L_lVdU65KETlkZl1O1_pEgL_72WxXlf4bjSO-UMesPJo9HIWcX73ZhqIrLcRSFsciYQzob6_ixbYmzggWJPQ629cFozpOGrsOkUw"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-low object-cover" data-alt="Portrait of an older investor with a friendly and trustworthy expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzg5y1GqDd92Xz4HhzZ5obSiJFaqmG7S-Il_tpq-6RBbKGbxAJZoLvcd4utYXHh0JDllbbFqL25Df-qI5DrggRxb8vCPwEI_lCz4ae3JE5gkwzARHPSXtad09Wow8bdX9RAHcrvYV-2CXaxD_WWpR75Wvgd3xufAi22lU1C6U971JAEPG8D-x3W1fsGgPHygeBuqxvYF9-5Q3FW9OFMJZUiN9smFij8SPaePX-e2fnvWJQ86BSGc9rhvvmUPGsK5yKJJunQqwAHpg"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-low bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-slate-400">+45</div>
+</div>
+<button class="text-primary hover:text-white transition-colors text-sm font-bold flex items-center gap-1">
+                                    View Deal Memo <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL (40%) -->
+<div class="lg:w-2/5 space-y-8">
+<!-- Portfolio Tracker -->
+<div class="bg-surface-container-low rounded-xl p-8">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-bold">Portfolio Tracker</h3>
+<span class="text-xs text-slate-500 uppercase font-bold tracking-widest">Sector Diversification</span>
+</div>
+<div class="flex items-center justify-center gap-12">
+<div class="relative w-36 h-36">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#1f2a3d" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#E6C364" stroke-dasharray="45 100" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#3B82F6" stroke-dasharray="25 100" stroke-dashoffset="-45" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="16" stroke="#6cd9cb" stroke-dasharray="15 100" stroke-dashoffset="-70" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col">
+<span class="text-xs text-slate-500">Target</span>
+<span class="font-bold tabular-nums">92%</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-xs font-medium">Healthcare (45%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-blue-500"></div>
+<span class="text-xs font-medium">Technology (25%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-xs font-medium">Retail (15%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-slate-700"></div>
+<span class="text-xs font-medium">Other (15%)</span>
+</div>
+</div>
+</div>
+<div class="mt-8 border-t border-outline-variant/20 pt-6 space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Emirates Health Group</span>
+<span class="bg-green-500/10 text-green-500 px-2 py-0.5 rounded text-[10px] font-bold uppercase">Signed</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Al-Nour Logistics</span>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase">Closing</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Jeddah Retail Syndicate</span>
+<span class="bg-blue-500/10 text-blue-500 px-2 py-0.5 rounded text-[10px] font-bold uppercase">Term Sheet</span>
+</div>
+</div>
+</div>
+<!-- Co-investor Activity Feed -->
+<div class="bg-surface-container-low rounded-xl p-8">
+<h3 class="text-xl font-bold mb-6">Network Intelligence</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-blue-500 text-xl">group</span>
+</div>
+<div>
+<p class="text-sm text-on-surface leading-snug">
+<span class="font-bold">3 investors</span> you know are looking at <span class="text-primary blur-[3px]">UAE Tech SME</span>
+</p>
+<span class="text-[10px] text-slate-500 font-medium">2 hours ago</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-xl">hub</span>
+</div>
+<div>
+<p class="text-sm text-on-surface leading-snug">
+                                        Lead investor <span class="font-bold">HNI Network member</span> created a new syndicate — <span class="tabular-nums font-bold">AED 2M minimum</span>
+</p>
+<span class="text-[10px] text-slate-500 font-medium">Yesterday at 4:30 PM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Deadlines -->
+<div class="bg-surface-container-low rounded-xl p-8">
+<h3 class="text-xl font-bold mb-6">Upcoming Deadlines</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest border-l-4 border-amber-500">
+<div>
+<p class="text-sm font-bold blur-[3px]">Hospitality Group</p>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">NDA expires</p>
+</div>
+<span class="bg-amber-500/10 text-amber-500 px-3 py-1 rounded-full text-[10px] font-bold">3 days</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest border-l-4 border-slate-700">
+<div>
+<p class="text-sm font-bold blur-[3px]">Saudi Fintech Startup</p>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Round closes</p>
+</div>
+<span class="bg-slate-700 text-slate-300 px-3 py-1 rounded-full text-[10px] font-bold">7 days</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest border-l-4 border-red-500">
+<div>
+<p class="text-sm font-bold blur-[3px]">UAE Manufacturing SME</p>
+<p class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Term sheet deadline</p>
+</div>
+<span class="bg-red-500/10 text-red-500 px-3 py-1 rounded-full text-[10px] font-bold">2 days</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Button - Supressed on dashboard per instructions but kept minimal for contextual action if needed -->
+<button class="fixed bottom-8 right-8 gold-gradient w-14 h-14 rounded-full flex items-center justify-center shadow-2xl active:scale-95 duration-200 z-[100]">
+<span class="material-symbols-outlined text-on-primary">add</span>
+</button>
+</body></html>

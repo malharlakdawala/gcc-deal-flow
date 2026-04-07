@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Valuation Engine | Al-Mawarid Financial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#adc6ff",
+                    "surface-container-low": "#101c2e",
+                    "surface-container": "#142032",
+                    "inverse-on-surface": "#253144",
+                    "on-background": "#d7e3fc",
+                    "primary-fixed-dim": "#e6c364",
+                    "primary-fixed": "#ffe08f",
+                    "surface-container-lowest": "#030e20",
+                    "surface-dim": "#071325",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-primary-container": "#503d00",
+                    "tertiary-fixed": "#89f5e7",
+                    "outline-variant": "#4d4637",
+                    "primary": "#e6c364",
+                    "tertiary-container": "#4dbdb0",
+                    "primary-container": "#c9a84c",
+                    "on-primary": "#3d2e00",
+                    "on-error": "#690005",
+                    "on-secondary-fixed-variant": "#004395",
+                    "inverse-primary": "#755b00",
+                    "tertiary-fixed-dim": "#6bd8cb",
+                    "surface-container-highest": "#2a3548",
+                    "on-secondary": "#002e6a",
+                    "on-primary-fixed": "#241a00",
+                    "on-tertiary-container": "#004942",
+                    "on-tertiary": "#003732",
+                    "secondary-fixed": "#d8e2ff",
+                    "secondary-container": "#0566d9",
+                    "on-secondary-container": "#e6ecff",
+                    "on-surface-variant": "#d0c5b2",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#005049",
+                    "surface-variant": "#2a3548",
+                    "error": "#ffb4ab",
+                    "tertiary": "#6cd9cb",
+                    "surface-container-high": "#1f2a3d",
+                    "surface-bright": "#2e394d",
+                    "surface": "#071325",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-surface": "#d7e3fc",
+                    "on-error-container": "#ffdad6",
+                    "outline": "#99907e",
+                    "on-secondary-fixed": "#001a42",
+                    "inverse-surface": "#d7e3fc",
+                    "background": "#071325",
+                    "surface-tint": "#e6c364",
+                    "on-tertiary-fixed": "#00201d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { background-color: #071325; color: #d7e3fc; font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { backdrop-filter: blur(20px); background: rgba(42, 53, 72, 0.6); }
+        .gold-gradient { background: linear-gradient(135deg, #e6c364 0%, #c9a84c 100%); }
+        .tabular { font-variant-numeric: tabular-nums; }
+    </style>
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 w-full bg-[#071325] border-b border-white/10 shadow-xl">
+<div class="text-xl font-bold text-[#E6C364] tracking-tight font-['Inter'] font-semibold">Al-Mawarid Financial</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-400 font-medium hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="text-slate-400 font-medium hover:text-white transition-colors" href="#">Help</a>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#E6C364] cursor-pointer hover:bg-white/5 transition-colors p-2 rounded-full">language</span>
+<button class="gold-gradient text-on-primary px-6 py-2 rounded-lg font-semibold text-sm hover:opacity-90 transition-all scale-95 duration-200">Save &amp; Continue Later</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 border-r border-white/5 bg-[#071325]/60 backdrop-blur-xl flex flex-col h-screen pt-20 z-40">
+<div class="px-6 mb-8">
+<div class="text-[#E6C364] font-bold font-['Inter'] uppercase tracking-widest text-xs">Onboarding</div>
+<div class="text-slate-500 text-[10px] tracking-[0.2em] uppercase">The Sovereign Ledger</div>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 font-medium text-xs tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Company Profile</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 font-medium text-xs tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Director Details</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 font-medium text-xs tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>UBO Declaration</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-slate-500 font-medium text-xs tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Financial Documents</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 text-[#E6C364] border-r-4 border-[#E6C364] bg-gradient-to-r from-[#E6C364]/10 to-transparent font-bold text-xs tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm">fact_check</span>
+<span>Final Review</span>
+</div>
+</nav>
+<div class="p-4 border-t border-white/5 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-[#E6C364]/70 transition-all text-xs tracking-widest uppercase" href="#">
+<span class="material-symbols-outlined text-sm">security</span> Privacy Policy
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-[#E6C364]/70 transition-all text-xs tracking-widest uppercase" href="#">
+<span class="material-symbols-outlined text-sm">contact_support</span> Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-12 px-12 min-h-screen">
+<!-- Wizard Header -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">AI Valuation Engine</h1>
+<p class="text-slate-400 max-w-xl">Leveraging proprietary GCC market data and real-time multiples to generate a sovereign-grade valuation for your enterprise.</p>
+</div>
+<div class="w-full md:w-80 space-y-2">
+<div class="flex justify-between text-xs font-bold tracking-widest uppercase text-primary">
+<span>Step 5 of 6 | 83% complete</span>
+<span>~3 min left</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[83%]"></div>
+</div>
+</div>
+</header>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left: Inputs Card -->
+<section class="col-span-12 lg:col-span-4">
+<div class="bg-surface-container-low rounded-xl p-8 border border-white/5 shadow-2xl">
+<h3 class="text-sm font-bold tracking-widest uppercase text-slate-500 mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">analytics</span> Input Parameters
+                    </h3>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Annual Revenue (AED)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface font-mono focus:ring-2 focus:ring-primary/50 transition-all" type="text" value="25,000,000"/>
+<span class="absolute right-4 top-3 text-slate-500 text-xs font-mono">AED</span>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Annual EBITDA (AED)</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface font-mono focus:ring-2 focus:ring-primary/50 transition-all" type="text" value="2,200,000"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Industry Sector</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all">
+<option>Healthcare Services</option>
+<option>Fintech</option>
+<option>Logistics</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Country of Operation</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/50 transition-all">
+<option>United Arab Emirates</option>
+<option>Saudi Arabia</option>
+<option>Qatar</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">YoY Growth Rate (%)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface font-mono focus:ring-2 focus:ring-primary/50 transition-all" type="number" value="14"/>
+<span class="absolute right-4 top-3 text-slate-500 text-xs font-mono">%</span>
+</div>
+</div>
+<button class="w-full py-4 rounded-xl border border-primary/20 bg-primary/5 text-primary font-bold uppercase tracking-widest text-xs hover:bg-primary/10 transition-all mt-4">
+                            Recalculate Engine
+                        </button>
+</div>
+</div>
+</section>
+<!-- Right: Results & AI Insights -->
+<section class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Valuation Scenarios Bento -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Bear Case -->
+<div class="bg-surface-container rounded-xl p-6 flex flex-col justify-between border border-white/5 h-48 group hover:bg-surface-container-high transition-all">
+<div>
+<div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Bear Case</div>
+<div class="text-[10px] text-slate-600 uppercase font-medium">Conservative</div>
+</div>
+<div class="text-2xl font-extrabold font-mono text-on-surface tabular">AED 12.0M</div>
+</div>
+<!-- Base Case (Featured) -->
+<div class="relative bg-surface-container-low rounded-xl p-6 flex flex-col justify-between border-2 border-primary/40 h-48 shadow-[0_0_40px_-10px_rgba(230,195,100,0.2)] overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary px-3 py-1 text-[10px] font-bold text-on-primary uppercase tracking-tighter">Our Recommendation</div>
+<div>
+<div class="text-xs font-bold text-primary uppercase tracking-widest mb-1">Base Case</div>
+<div class="text-[10px] text-primary/60 uppercase font-medium">Market Optimized</div>
+</div>
+<div class="text-3xl font-extrabold font-mono text-primary tabular">AED 15.5M</div>
+</div>
+<!-- Bull Case -->
+<div class="bg-surface-container rounded-xl p-6 flex flex-col justify-between border border-white/5 h-48 group hover:bg-surface-container-high transition-all">
+<div>
+<div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Bull Case</div>
+<div class="text-[10px] text-slate-600 uppercase font-medium">Optimistic</div>
+</div>
+<div class="text-2xl font-extrabold font-mono text-on-surface tabular">AED 18.0M</div>
+</div>
+</div>
+<!-- AI Insight Banner -->
+<div class="border-l-4 border-secondary bg-secondary/5 rounded-r-xl p-6 flex items-start gap-5">
+<div class="bg-secondary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xs font-bold text-secondary uppercase tracking-widest">AI Market Analysis</span>
+<span class="bg-secondary text-on-secondary-container text-[8px] px-1.5 py-0.5 rounded-sm font-black uppercase">Alpha V2</span>
+</div>
+<p class="text-on-surface font-medium italic">"GCC healthcare businesses at this size typically transact at 6–9x EBITDA. Your current trajectory suggests a premium multiple of 7.2x."</p>
+</div>
+</div>
+<!-- Sensitivity Table -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-white/5">
+<div class="p-6 border-b border-white/5">
+<h4 class="text-xs font-bold uppercase tracking-widest text-slate-500">Sensitivity Analysis: EBITDA Margin Impact</h4>
+</div>
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-high/50 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+<th class="px-8 py-4">Margin (%)</th>
+<th class="px-8 py-4">Adjusted EBITDA</th>
+<th class="px-8 py-4">Valuation (AED)</th>
+<th class="px-8 py-4 text-right">Premium / Discount</th>
+</tr>
+</thead>
+<tbody class="text-sm font-medium">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-5 text-slate-300 font-mono">8% Margin</td>
+<td class="px-8 py-5 text-slate-400 tabular">AED 2.0M</td>
+<td class="px-8 py-5 tabular">AED 13.2M</td>
+<td class="px-8 py-5 text-right text-error tabular">-14.8%</td>
+</tr>
+<tr class="bg-primary/5 transition-colors">
+<td class="px-8 py-5 text-primary font-bold font-mono">10% Margin</td>
+<td class="px-8 py-5 text-primary tabular">AED 2.5M</td>
+<td class="px-8 py-5 text-primary tabular">AED 15.5M</td>
+<td class="px-8 py-5 text-right text-primary font-bold tabular">BASELINE</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-8 py-5 text-slate-300 font-mono">12% Margin</td>
+<td class="px-8 py-5 text-slate-400 tabular">AED 3.0M</td>
+<td class="px-8 py-5 tabular">AED 19.8M</td>
+<td class="px-8 py-5 text-right text-tertiary tabular">+27.7%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Actions -->
+<div class="flex justify-between items-center pt-8">
+<button class="flex items-center gap-2 px-6 py-3 text-slate-400 font-bold text-xs uppercase tracking-widest hover:text-white transition-all">
+<span class="material-symbols-outlined">arrow_back</span> Back to Step 4
+                    </button>
+<div class="flex gap-4">
+<button class="px-8 py-4 rounded-xl glass-panel border border-white/10 text-on-surface font-bold text-xs uppercase tracking-widest hover:bg-white/5 transition-all">
+                            Export PDF
+                        </button>
+<button class="gold-gradient px-12 py-4 rounded-xl text-on-primary font-extrabold text-xs uppercase tracking-[0.15em] shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">
+                            Approve &amp; Finalize Review
+                        </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Decorative Elements -->
+<div class="fixed bottom-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10 translate-x-1/2 translate-y-1/2"></div>
+<div class="fixed top-0 left-64 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -z-10 -translate-x-1/2 -translate-y-1/2"></div>
+</main>
+</body></html>

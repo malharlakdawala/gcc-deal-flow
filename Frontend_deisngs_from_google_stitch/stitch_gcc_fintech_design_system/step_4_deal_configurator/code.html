@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#adc6ff",
+                    "surface-container-low": "#101c2e",
+                    "surface-container": "#142032",
+                    "inverse-on-surface": "#253144",
+                    "on-background": "#d7e3fc",
+                    "primary-fixed-dim": "#e6c364",
+                    "primary-fixed": "#ffe08f",
+                    "surface-container-lowest": "#030e20",
+                    "surface-dim": "#071325",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-primary-container": "#503d00",
+                    "tertiary-fixed": "#89f5e7",
+                    "outline-variant": "#4d4637",
+                    "primary": "#e6c364",
+                    "tertiary-container": "#4dbdb0",
+                    "primary-container": "#c9a84c",
+                    "on-primary": "#3d2e00",
+                    "on-error": "#690005",
+                    "on-secondary-fixed-variant": "#004395",
+                    "inverse-primary": "#755b00",
+                    "tertiary-fixed-dim": "#6bd8cb",
+                    "surface-container-highest": "#2a3548",
+                    "on-secondary": "#002e6a",
+                    "on-primary-fixed": "#241a00",
+                    "on-tertiary-container": "#004942",
+                    "on-tertiary": "#003732",
+                    "secondary-fixed": "#d8e2ff",
+                    "secondary-container": "#0566d9",
+                    "on-secondary-container": "#e6ecff",
+                    "on-surface-variant": "#d0c5b2",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#005049",
+                    "surface-variant": "#2a3548",
+                    "error": "#ffb4ab",
+                    "tertiary": "#6cd9cb",
+                    "surface-container-high": "#1f2a3d",
+                    "surface-bright": "#2e394d",
+                    "surface": "#071325",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-surface": "#d7e3fc",
+                    "on-error-container": "#ffdad6",
+                    "outline": "#99907e",
+                    "on-secondary-fixed": "#001a42",
+                    "inverse-surface": "#d7e3fc",
+                    "background": "#071325",
+                    "surface-tint": "#e6c364",
+                    "on-tertiary-fixed": "#00201d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: #4d4637; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#071325] border-b border-white/10 shadow-xl flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold text-[#E6C364] tracking-tight">Al-Mawarid Financial</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-slate-400 font-medium hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="text-slate-400 font-medium hover:text-white transition-colors" href="#">Help</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-slate-400 hover:text-[#E6C364] transition-all">language</button>
+<button class="bg-[#E6C364] text-[#3d2e00] px-5 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all scale-95 active:scale-90">
+                Save &amp; Continue Later
+            </button>
+</div>
+</header>
+<!-- SideNavBar (The Ledger Guide) -->
+<aside class="fixed left-0 top-0 h-full w-64 border-r border-white/5 bg-[#071325]/60 backdrop-blur-xl flex flex-col h-screen pt-20 z-40">
+<div class="px-6 py-4 mb-4">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-[#E6C364] font-bold">Onboarding</span>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded-full border border-tertiary/20">LIVE</span>
+</div>
+<p class="text-slate-500 font-['Inter'] uppercase tracking-widest text-[10px]">The Sovereign Ledger</p>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<!-- Completed Steps -->
+<div class="flex items-center gap-3 px-3 py-3 text-slate-500 font-['Inter'] uppercase tracking-widest text-xs opacity-60">
+<span class="material-symbols-outlined text-emerald-500 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Company Profile
+            </div>
+<div class="flex items-center gap-3 px-3 py-3 text-slate-500 font-['Inter'] uppercase tracking-widest text-xs opacity-60">
+<span class="material-symbols-outlined text-emerald-500 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Director Details
+            </div>
+<div class="flex items-center gap-3 px-3 py-3 text-slate-500 font-['Inter'] uppercase tracking-widest text-xs opacity-60">
+<span class="material-symbols-outlined text-emerald-500 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                UBO Declaration
+            </div>
+<!-- Active Step -->
+<div class="flex items-center gap-3 px-3 py-3 text-[#E6C364] border-r-4 border-[#E6C364] bg-gradient-to-r from-[#E6C364]/10 to-transparent font-['Inter'] uppercase tracking-widest text-xs">
+<span class="material-symbols-outlined text-sm">description</span>
+                Financial Documents
+            </div>
+<!-- Future Steps -->
+<div class="flex items-center gap-3 px-3 py-3 text-slate-500 hover:text-[#E6C364]/70 transition-all font-['Inter'] uppercase tracking-widest text-xs cursor-not-allowed">
+<span class="material-symbols-outlined text-sm">fact_check</span>
+                Final Review
+            </div>
+</nav>
+<div class="mt-auto p-6 space-y-4 border-t border-white/5">
+<a class="flex items-center gap-3 text-slate-500 hover:text-[#E6C364]/70 transition-all font-['Inter'] uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined text-sm">security</span>
+                Privacy Policy
+            </a>
+<a class="flex items-center gap-3 text-slate-500 hover:text-[#E6C364]/70 transition-all font-['Inter'] uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-12 px-12 max-w-7xl">
+<!-- Header & Progress Section -->
+<header class="mb-10">
+<div class="flex justify-between items-end mb-4">
+<div>
+<h1 class="text-3xl font-bold text-on-background mb-1 tracking-tight">Deal Type &amp; Terms Configurator</h1>
+<p class="text-slate-400 text-sm">Define the structure of your financial requirement and investment terms.</p>
+</div>
+<div class="text-right">
+<span class="text-[#E6C364] font-['JetBrains_Mono'] text-sm">Step 4 of 6 | 66% Complete</span>
+<p class="text-slate-500 text-[10px] mt-1">~5 MINUTES REMAINING</p>
+</div>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[66%] h-full bg-gradient-to-r from-primary to-primary-container"></div>
+</div>
+</header>
+<!-- Configuration Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Selection & Forms -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Deal Type Selector -->
+<section class="bg-surface-container-low p-8 rounded-xl shadow-lg border-l-4 border-primary">
+<h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">account_tree</span>
+                        Primary Deal Type
+                    </h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<!-- Card 1: Full Sale -->
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="deal_type" type="radio"/>
+<div class="h-full p-4 rounded-lg bg-surface-container border border-transparent peer-checked:border-primary/50 peer-checked:bg-primary/5 transition-all group-hover:bg-white/5">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">sell</span>
+<div class="mt-3 text-sm font-semibold text-on-surface">Full Sale</div>
+</div>
+</label>
+<!-- Card 2: Partial Sale -->
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="deal_type" type="radio"/>
+<div class="h-full p-4 rounded-lg bg-surface-container border border-transparent peer-checked:border-primary/50 peer-checked:bg-primary/5 transition-all group-hover:bg-white/5">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">pie_chart</span>
+<div class="mt-3 text-sm font-semibold text-on-surface">Partial Sale</div>
+</div>
+</label>
+<!-- Card 3: Equity Fundraise (ACTIVE) -->
+<label class="relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="deal_type" type="radio"/>
+<div class="h-full p-4 rounded-lg bg-primary/5 border border-primary/50 transition-all">
+<span class="material-symbols-outlined text-primary">payments</span>
+<div class="mt-3 text-sm font-semibold text-on-surface">Equity Fundraise</div>
+</div>
+</label>
+<!-- Card 4: Debt -->
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="deal_type" type="radio"/>
+<div class="h-full p-4 rounded-lg bg-surface-container border border-transparent peer-checked:border-primary/50 peer-checked:bg-primary/5 transition-all group-hover:bg-white/5">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">account_balance</span>
+<div class="mt-3 text-sm font-semibold text-on-surface">Debt</div>
+</div>
+</label>
+<!-- Card 5: MBO -->
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="deal_type" type="radio"/>
+<div class="h-full p-4 rounded-lg bg-surface-container border border-transparent peer-checked:border-primary/50 peer-checked:bg-primary/5 transition-all group-hover:bg-white/5">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">groups_3</span>
+<div class="mt-3 text-sm font-semibold text-on-surface">MBO</div>
+</div>
+</label>
+<!-- Card 6: JV -->
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="deal_type" type="radio"/>
+<div class="h-full p-4 rounded-lg bg-surface-container border border-transparent peer-checked:border-primary/50 peer-checked:bg-primary/5 transition-all group-hover:bg-white/5">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">handshake</span>
+<div class="mt-3 text-sm font-semibold text-on-surface">JV</div>
+</div>
+</label>
+</div>
+</section>
+<!-- Conditional Fields: Equity Fundraise -->
+<section class="bg-surface-container-low p-8 rounded-xl shadow-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-8xl">payments</span>
+</div>
+<h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">tune</span>
+                        Fundraising Parameters
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+<!-- Pre-money Valuation -->
+<div class="space-y-2">
+<label class="block text-xs font-semibold text-slate-400">Asking Pre-money Valuation (AED)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-['JetBrains_Mono']">AED</span>
+<input class="w-full bg-surface-container-lowest border-0 rounded-lg py-4 pl-14 pr-4 text-on-surface font-['JetBrains_Mono'] focus:ring-1 focus:ring-primary" type="text" value="45,000,000"/>
+</div>
+</div>
+<!-- % Equity Offered -->
+<div class="space-y-2">
+<label class="block text-xs font-semibold text-slate-400">% Equity Offered</label>
+<div class="relative">
+<input class="w-full accent-primary bg-surface-container-highest rounded-lg h-2 appearance-none mt-6" type="range"/>
+<div class="absolute top-0 right-0 font-['JetBrains_Mono'] text-primary font-bold">15%</div>
+</div>
+</div>
+<!-- Minimum Ticket Size -->
+<div class="space-y-2">
+<label class="block text-xs font-semibold text-slate-400">Minimum Ticket Size (AED)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-0 rounded-lg py-4 px-4 text-on-surface font-['JetBrains_Mono'] focus:ring-1 focus:ring-primary" placeholder="e.g. 500,000" type="text"/>
+</div>
+</div>
+<!-- Round Type -->
+<div class="space-y-2">
+<label class="block text-xs font-semibold text-slate-400">Round Type</label>
+<select class="w-full bg-surface-container-lowest border-0 rounded-lg py-4 px-4 text-on-surface focus:ring-1 focus:ring-primary appearance-none">
+<option>Seed</option>
+<option selected="">Series A</option>
+<option>Series B</option>
+<option>Series C+</option>
+</select>
+</div>
+<!-- Close Date Target -->
+<div class="space-y-2 col-span-full md:col-span-1">
+<label class="block text-xs font-semibold text-slate-400">Close Date Target</label>
+<input class="w-full bg-surface-container-lowest border-0 rounded-lg py-4 px-4 text-on-surface focus:ring-1 focus:ring-primary" type="date"/>
+</div>
+</div>
+</section>
+<!-- Navigation Controls -->
+<div class="flex justify-between items-center pt-4">
+<button class="flex items-center gap-2 text-slate-400 font-semibold hover:text-white transition-all px-6 py-3">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Back
+                    </button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-xl font-bold shadow-[0_0_20px_rgba(230,195,100,0.2)] hover:shadow-[0_0_30px_rgba(230,195,100,0.3)] transition-all transform hover:-translate-y-0.5">
+                        Continue to Step 5
+                    </button>
+</div>
+</div>
+<!-- Right Column: AI Insights & Summary -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- AI Compliance Widget -->
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-secondary shadow-lg">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+<h3 class="text-xs font-bold text-secondary uppercase tracking-widest">Intelligent Engine</h3>
+</div>
+<div class="bg-secondary/10 px-2 py-0.5 rounded text-[10px] text-secondary font-bold">ACTIVE</div>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-lg mb-6">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm font-medium text-on-surface">Sharia-compliant only</span>
+<!-- Custom Crescent Toggle -->
+<button class="relative w-12 h-6 bg-tertiary rounded-full p-1 flex items-center transition-all">
+<div class="absolute right-1 w-4 h-4 bg-on-tertiary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] font-bold">dark_mode</span>
+</div>
+</button>
+</div>
+<div class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined text-sm">eco</span>
+<span class="text-xs font-bold">Ethical &amp; Sharia Verified</span>
+</div>
+</div>
+<p class="text-slate-400 text-xs leading-relaxed italic">
+                        "Your current parameters suggest a high likelihood of attracting institutional capital from the GCC sovereign wealth fund ecosystem. Sharia-compliance is currently a prerequisite for 82% of regional family offices."
+                    </p>
+</div>
+<!-- Strategic Preview Card -->
+<div class="bg-surface-container-low p-6 rounded-xl shadow-lg space-y-6">
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest">Market Context</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-highest/40">
+<span class="text-xs text-slate-400">Market Median (Series A)</span>
+<span class="text-xs font-['JetBrains_Mono'] text-on-surface">AED 38M</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-highest/40 border-l-2 border-primary">
+<span class="text-xs text-slate-400">Your Ask</span>
+<span class="text-xs font-['JetBrains_Mono'] text-primary">AED 45M</span>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden h-32">
+<img alt="Financial data chart" class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-700" data-alt="Abstract cinematic visualization of glowing financial data points and stock market curves on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3t6XWWAIL-0Dk8VMXWkUNYQ6PubBKZqzt3bmLTLwR6yygNzNOBYfSZo-sOHelnvtMZ3dIpnuc1M44Ca9nqpZ1bGNZpdD4rOguucDVep6xDrm0u-LhCnkjaz_jTqbMgWbVAO8uEWAV5brqzGk3-PEnUhduGeZavxgC7pYwAKi-hn9WPsD1lMlOLWJfTvi09lp9eioNpWWm6Xf1D-0LPkImJZ8yl27LdrNikKqSv1NcWTqB-r28WsKxRHd1TN-HtkEZ-gfQ7P67Rrs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<div class="absolute bottom-3 left-3">
+<span class="text-[10px] font-bold text-on-surface bg-background/80 px-2 py-1 rounded backdrop-blur-sm">Regional Series A Index</span>
+</div>
+</div>
+</div>
+<!-- Support Anchor -->
+<div class="bg-surface-container p-6 rounded-xl border border-white/5 text-center">
+<p class="text-xs text-slate-500 mb-3 italic">Need structural advice on your deal?</p>
+<button class="text-primary text-xs font-bold flex items-center justify-center gap-2 w-full py-3 rounded-lg border border-primary/20 hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined text-sm">forum</span>
+                        Consult with Al-Mawarid Partner
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Decorative Glow -->
+<div class="fixed bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent blur-xl pointer-events-none"></div>
+</body></html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Document Upload Hub | Al-Mawarid Financial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+Arabic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#adc6ff",
+                        "surface-container-low": "#101c2e",
+                        "surface-container": "#142032",
+                        "inverse-on-surface": "#253144",
+                        "on-background": "#d7e3fc",
+                        "primary-fixed-dim": "#e6c364",
+                        "primary-fixed": "#ffe08f",
+                        "surface-container-lowest": "#030e20",
+                        "surface-dim": "#071325",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-primary-container": "#503d00",
+                        "tertiary-fixed": "#89f5e7",
+                        "outline-variant": "#4d4637",
+                        "primary": "#e6c364",
+                        "tertiary-container": "#4dbdb0",
+                        "primary-container": "#c9a84c",
+                        "on-primary": "#3d2e00",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#004395",
+                        "inverse-primary": "#755b00",
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "surface-container-highest": "#2a3548",
+                        "on-secondary": "#002e6a",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-container": "#004942",
+                        "on-tertiary": "#003732",
+                        "secondary-fixed": "#d8e2ff",
+                        "secondary-container": "#0566d9",
+                        "on-secondary-container": "#e6ecff",
+                        "on-surface-variant": "#d0c5b2",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "surface-variant": "#2a3548",
+                        "error": "#ffb4ab",
+                        "tertiary": "#6cd9cb",
+                        "surface-container-high": "#1f2a3d",
+                        "surface-bright": "#2e394d",
+                        "surface": "#071325",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-surface": "#d7e3fc",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#99907e",
+                        "on-secondary-fixed": "#001a42",
+                        "inverse-surface": "#d7e3fc",
+                        "background": "#071325",
+                        "surface-tint": "#e6c364",
+                        "on-tertiary-fixed": "#00201d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(42, 53, 72, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .sunken-shadow {
+            box-shadow: 0 32px 32px -16px rgba(7, 19, 37, 0.5);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #E6C364 0%, #C9A84C 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .font-tabular {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#071325] border-b border-white/10 shadow-xl flex justify-between items-center px-8 py-4 w-full">
+<div class="text-xl font-bold text-[#E6C364] tracking-tight font-['Inter'] font-semibold">Al-Mawarid Financial</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-400 font-medium hover:text-white font-['Inter'] font-semibold transition-colors" href="#">Dashboard</a>
+<a class="text-slate-400 font-medium hover:text-white font-['Inter'] font-semibold transition-colors" href="#">Help</a>
+<div class="w-px h-6 bg-white/10"></div>
+<button class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<button class="gold-gradient text-on-primary px-6 py-2.5 rounded-xl font-bold transition-all hover:scale-95 duration-200">
+                Save &amp; Continue Later
+            </button>
+</div>
+</header>
+<div class="flex pt-20">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 border-r border-white/5 bg-[#071325]/60 backdrop-blur-xl flex flex-col h-screen pt-20 z-40">
+<div class="px-6 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#E6C364]" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<div class="text-[#E6C364] font-bold font-['Inter'] uppercase tracking-widest text-[10px]">Onboarding</div>
+<div class="text-slate-400 text-[10px] tracking-tight">The Sovereign Ledger</div>
+</div>
+</div>
+<nav class="flex-1 px-4 mt-8 space-y-2">
+<div class="group flex items-center px-4 py-3 text-slate-400 font-['Inter'] uppercase tracking-widest text-xs transition-all opacity-60">
+<span class="material-symbols-outlined mr-3" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Company Profile
+                </div>
+<div class="group flex items-center px-4 py-3 text-slate-400 font-['Inter'] uppercase tracking-widest text-xs transition-all opacity-60">
+<span class="material-symbols-outlined mr-3" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Director Details
+                </div>
+<div class="group flex items-center px-4 py-3 text-[#E6C364] border-r-4 border-[#E6C364] bg-gradient-to-r from-[#E6C364]/10 to-transparent font-['Inter'] uppercase tracking-widest text-xs transition-all">
+<span class="material-symbols-outlined mr-3" data-icon="account_balance">account_balance</span>
+                    UBO Declaration
+                </div>
+<div class="group flex items-center px-4 py-3 text-slate-500 hover:text-[#E6C364]/70 font-['Inter'] uppercase tracking-widest text-xs transition-all">
+<span class="material-symbols-outlined mr-3" data-icon="description">description</span>
+                    Financial Documents
+                </div>
+<div class="group flex items-center px-4 py-3 text-slate-500 hover:text-[#E6C364]/70 font-['Inter'] uppercase tracking-widest text-xs transition-all">
+<span class="material-symbols-outlined mr-3" data-icon="fact_check">fact_check</span>
+                    Final Review
+                </div>
+</nav>
+<div class="p-4 border-t border-white/5 space-y-1">
+<a class="flex items-center px-4 py-2 text-slate-500 hover:text-[#E6C364]/70 font-['Inter'] uppercase tracking-widest text-[10px]" href="#">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="security">security</span>
+                    Privacy Policy
+                </a>
+<a class="flex items-center px-4 py-2 text-slate-500 hover:text-[#E6C364]/70 font-['Inter'] uppercase tracking-widest text-[10px]" href="#">
+<span class="material-symbols-outlined mr-3 text-sm" data-icon="contact_support">contact_support</span>
+                    Support
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 p-12 max-w-7xl">
+<!-- Progress Header -->
+<div class="mb-12">
+<div class="flex justify-between items-end mb-4">
+<div>
+<h1 class="text-4xl font-bold text-white mb-2 tracking-tight">Document Upload Hub</h1>
+<p class="text-slate-400 font-medium">Verify your corporate identity to unlock institutional capital.</p>
+</div>
+<div class="text-right">
+<div class="text-primary font-bold text-lg">Step 3 of 6</div>
+<div class="text-slate-500 text-sm font-medium">~8 minutes remaining</div>
+</div>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-1/2 gold-gradient"></div>
+</div>
+</div>
+<!-- AI Insight Banner -->
+<div class="mb-10 p-6 rounded-xl bg-secondary/5 border-l-4 border-secondary flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="auto_awesome">auto_awesome</span>
+<p class="text-secondary font-medium">Uploading Management Accounts can increase your deal visibility by 25%.</p>
+<div class="ml-auto flex gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-wider">AI Insight</span>
+</div>
+</div>
+<!-- Upload Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Trade License -->
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col group hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-bold uppercase text-slate-500 tracking-widest">Required</span>
+<span class="px-2 py-1 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold font-tabular flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span> +20 Readiness
+                            </span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-white mb-1">Trade License</h3>
+<p class="text-xs text-slate-500 mb-6">Latest valid UAE Trade License.</p>
+<div class="mt-auto border-2 border-dashed border-white/10 rounded-xl p-8 text-center group-hover:border-primary/50 transition-colors flex flex-col items-center">
+<span class="material-symbols-outlined text-slate-600 mb-2" data-icon="cloud_upload">cloud_upload</span>
+<span class="text-xs font-semibold text-slate-400">Drag &amp; Drop or <span class="text-primary">Browse</span></span>
+<span class="text-[10px] text-slate-600 mt-1">PDF, JPG (Max 10MB)</span>
+</div>
+</div>
+<!-- MOA / AOA -->
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col group hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-bold uppercase text-slate-500 tracking-widest">Required</span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-white mb-1">MOA / AOA</h3>
+<p class="text-xs text-slate-500 mb-6">Memorandum and Articles of Association.</p>
+<div class="mt-auto bg-surface-container-highest rounded-xl p-4 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="task_alt" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<div class="flex-1 overflow-hidden">
+<div class="text-xs font-bold text-white truncate">MOA_Final_2023.pdf</div>
+<div class="text-[10px] text-slate-500 font-tabular">2.4 MB • Verified</div>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Audited Accounts -->
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col group hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-bold uppercase text-slate-500 tracking-widest">Required</span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-white mb-1">Audited Accounts</h3>
+<p class="text-xs text-slate-500 mb-6">Full audits for the last 3 financial years.</p>
+<div class="mt-auto space-y-2">
+<div class="bg-surface-container-highest rounded-xl p-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="hourglass_empty">hourglass_empty</span>
+<div class="flex-1 overflow-hidden">
+<div class="text-xs font-bold text-white">FY2022_Audit.pdf</div>
+<div class="text-[10px] text-slate-500">Pending AI Review</div>
+</div>
+</div>
+<div class="border-2 border-dashed border-white/5 rounded-xl p-4 text-center">
+<span class="text-[10px] font-bold text-slate-600 uppercase tracking-widest">+ Upload FY2021 &amp; FY2020</span>
+</div>
+</div>
+</div>
+<!-- Management Accounts -->
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col group border border-secondary/20 bg-gradient-to-br from-surface-container-low to-secondary/5">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-bold uppercase text-slate-500 tracking-widest">Optional</span>
+<span class="px-2 py-1 rounded-full bg-secondary text-on-secondary text-[10px] font-bold font-tabular flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="bolt">bolt</span> +15 Readiness
+                            </span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-white mb-1">Management Accounts</h3>
+<p class="text-xs text-slate-500 mb-6">Current year-to-date performance reports.</p>
+<div class="mt-auto border-2 border-dashed border-secondary/30 rounded-xl p-8 text-center group-hover:bg-secondary/5 transition-all flex flex-col items-center">
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="upload_file">upload_file</span>
+<span class="text-xs font-semibold text-secondary">Boost your deal score</span>
+</div>
+</div>
+<!-- Cap Table -->
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col group hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="pie_chart">pie_chart</span>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-bold uppercase text-slate-500 tracking-widest">For Equity</span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-white mb-1">Cap Table</h3>
+<p class="text-xs text-slate-500 mb-6">Detailed capitalization table including dilutive instruments.</p>
+<div class="mt-auto border-2 border-dashed border-white/10 rounded-xl p-8 text-center group-hover:border-primary/50 transition-colors flex flex-col items-center">
+<span class="material-symbols-outlined text-slate-600 mb-2" data-icon="add_circle">add_circle</span>
+<span class="text-xs font-semibold text-slate-400">Upload Cap Table</span>
+</div>
+</div>
+<!-- Shareholder Agreement -->
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col group hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="text-[10px] font-bold uppercase text-slate-500 tracking-widest">Optional</span>
+<span class="px-2 py-1 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold font-tabular flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span> +10 Readiness
+                            </span>
+</div>
+</div>
+<h3 class="text-lg font-bold text-white mb-1">Shareholder Agreement</h3>
+<p class="text-xs text-slate-500 mb-6">Current SHA signed by all major parties.</p>
+<div class="mt-auto border-2 border-dashed border-white/10 rounded-xl p-8 text-center group-hover:border-primary/50 transition-colors flex flex-col items-center">
+<span class="material-symbols-outlined text-slate-600 mb-2" data-icon="post_add">post_add</span>
+<span class="text-xs font-semibold text-slate-400">Upload Document</span>
+</div>
+</div>
+</div>
+<!-- Bottom Action Bar -->
+<div class="mt-12 flex justify-between items-center pt-8 border-t border-white/5">
+<button class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors group">
+<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1" data-icon="arrow_back">arrow_back</span>
+<span class="font-bold uppercase tracking-widest text-xs">Back to Director Details</span>
+</button>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-xl bg-surface-container-highest text-white font-bold transition-all hover:bg-surface-bright">
+                        Save Draft
+                    </button>
+<button class="gold-gradient px-12 py-3 rounded-xl text-on-primary font-extrabold shadow-[0_0_20px_rgba(230,195,100,0.2)] hover:scale-[1.02] transition-all">
+                        Continue to Final Review
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<!-- Background Decoration -->
+<div class="fixed top-0 right-0 -z-10 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-secondary/5 blur-[100px] rounded-full pointer-events-none"></div>
+</body></html>

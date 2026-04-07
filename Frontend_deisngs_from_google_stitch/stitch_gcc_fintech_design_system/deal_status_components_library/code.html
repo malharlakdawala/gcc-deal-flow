@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Component Library — Part 1: Deal &amp; Status</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Sans+Arabic:wght@400;600;700&amp;family=JetBrains+Mono&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "on-tertiary": "#003732",
+                        "outline-variant": "#4d4637",
+                        "on-secondary-container": "#e6ecff",
+                        "error": "#ffb4ab",
+                        "secondary-fixed": "#d8e2ff",
+                        "primary": "#e6c364",
+                        "surface-dim": "#071325",
+                        "surface": "#071325",
+                        "surface-bright": "#2e394d",
+                        "on-primary": "#3d2e00",
+                        "inverse-surface": "#d7e3fc",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-error": "#690005",
+                        "surface-variant": "#2a3548",
+                        "surface-container-high": "#1f2a3d",
+                        "surface-container-lowest": "#030e20",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "on-secondary-fixed-variant": "#004395",
+                        "secondary": "#adc6ff",
+                        "inverse-primary": "#755b00",
+                        "on-secondary-fixed": "#001a42",
+                        "on-primary-fixed": "#241a00",
+                        "on-primary-container": "#503d00",
+                        "secondary-container": "#0566d9",
+                        "inverse-on-surface": "#253144",
+                        "on-primary-fixed-variant": "#584400",
+                        "outline": "#99907e",
+                        "primary-fixed-dim": "#e6c364",
+                        "on-surface-variant": "#d0c5b2",
+                        "surface-container-low": "#101c2e",
+                        "on-secondary": "#002e6a",
+                        "primary-container": "#c9a84c",
+                        "surface-container": "#142032",
+                        "background": "#071325",
+                        "tertiary": "#6cd9cb",
+                        "surface-container-highest": "#2a3548",
+                        "tertiary-container": "#4dbdb0",
+                        "surface-tint": "#e6c364",
+                        "on-tertiary-container": "#004942",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#89f5e7",
+                        "primary-fixed": "#ffe08f",
+                        "on-tertiary-fixed": "#00201d",
+                        "on-surface": "#d7e3fc",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#d7e3fc"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "Noto Sans Arabic"],
+                        "body": ["Inter", "Noto Sans Arabic"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tabular-nums { font-variant-numeric: tabular-nums; }
+        .glass-panel {
+            background: rgba(42, 53, 72, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #e6c364 0%, #c9a84c 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary min-h-screen">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-[#071325]/80 backdrop-blur-xl shadow-[0_32px_32px_rgba(7,19,37,0.06)]">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-[#E6C364]">Sovereign Ledger</span>
+<span class="text-slate-500 font-mono text-xs px-2 py-1 border border-outline-variant/20 rounded uppercase">v1.0.0 — Library</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center text-sm font-semibold">
+<a class="text-slate-400 hover:text-[#E6C364] transition-colors duration-300" href="#">Overview</a>
+<a class="text-[#E6C364] border-b-2 border-[#E6C364] pb-1" href="#">Components</a>
+<a class="text-slate-400 hover:text-[#E6C364] transition-colors duration-300" href="#">Templates</a>
+<a class="text-slate-400 hover:text-[#E6C364] transition-colors duration-300" href="#">Guidelines</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#E6C364]">notifications</span>
+<span class="material-symbols-outlined text-[#E6C364]">account_balance_wallet</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a middle eastern wealth manager in a minimalist dark environment with soft warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByEzIZRNaYsaMRU1Lz9FnFpHsYiY-E8ykCsJz7oY8paS3hFVv9LD7Hzcsx-4mDmzipH5k9AuOMxEF2QJ76toW6Z_mAIt4T4rLghtiVd5sV-wfx4BSvccF2pAVgmgp34930f8jBoxMQqKcK0Er85omYJFrFQ3o83pEk1GCvUGrq5osdm5J4HhC1ubYYsKiRafFr841HSuZbgTiJWVWGchBFy8VmFBNEUwHxKjrqUH6k4ULR8hQyhT0Q_zWmm8McLmYcSu7RFOuTfm8"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation Anchor -->
+<aside class="fixed left-0 top-0 h-full w-[240px] bg-gradient-to-b from-[#071325] to-[#0a1b32] pt-24 border-r border-[#E6C364]/10 hidden xl:flex flex-col py-8 z-40">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div>
+<h3 class="text-[#E6C364] font-bold text-xs">Al-Futtaim Office</h3>
+<p class="text-slate-500 text-[10px] uppercase tracking-widest">Private Vault</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-[#E6C364] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-['Inter'] tracking-wide">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#E6C364] font-semibold bg-[#E6C364]/5 border-r-2 border-[#E6C364]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span class="text-sm font-['Inter'] tracking-wide">Deal Room</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-[#E6C364] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">pie_chart</span>
+<span class="text-sm font-['Inter'] tracking-wide">Portfolio</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-[#E6C364] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-sm font-['Inter'] tracking-wide">Intelligence</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-[#E6C364] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-sm font-['Inter'] tracking-wide">Compliance</span>
+</a>
+</nav>
+<div class="px-6 pt-6 mt-auto border-t border-outline-variant/10 space-y-2">
+<a class="flex items-center gap-3 py-2 text-slate-500 hover:text-[#E6C364] transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span class="text-xs">Settings</span>
+</a>
+<a class="flex items-center gap-3 py-2 text-slate-500 hover:text-[#E6C364] transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+<span class="text-xs">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="xl:pl-[240px] pt-24 pb-12 px-8">
+<!-- Header -->
+<header class="mb-12">
+<div class="flex items-baseline gap-4 mb-2">
+<h1 class="text-4xl font-bold text-on-surface leading-tight tracking-tight">Component Library — Part 1: Deal &amp; Status</h1>
+<h2 class="text-2xl font-bold text-slate-500 font-['Noto_Sans_Arabic']" dir="rtl">مكتبة المكونات - الجزء الأول: الصفقات والحالات</h2>
+</div>
+<p class="text-on-surface-variant max-w-2xl text-lg">Detailed specification of deal-flow components, investor heatmaps, and verification systems for Sovereign Ledger's private banking ecosystem.</p>
+</header>
+<!-- Section 1: DEAL CARDS -->
+<section class="mb-20">
+<div class="flex items-center justify-between border-b border-outline-variant/10 pb-4 mb-8">
+<div>
+<h3 class="text-xl font-bold text-on-surface">1. DEAL CARDS (Pre-NDA &amp; Revealed)</h3>
+<p class="text-sm text-slate-500 font-['Noto_Sans_Arabic'] mt-1" dir="rtl">١. بطاقات الصفقات (ما قبل اتفاقية عدم الإفصاح والكشف)</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Card 1: Default (Anonymized) -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-tertiary/10 text-tertiary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+                            Sharia Compliant
+                        </span>
+<div class="w-10 h-10 rounded-full border-2 border-secondary flex items-center justify-center text-[10px] font-bold tabular-nums text-secondary">
+                            88%
+                        </div>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">medical_services</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase tracking-widest">Healthcare — UAE</p>
+<div class="h-4 w-32 bg-slate-700/50 rounded animate-pulse mt-1"></div>
+</div>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex justify-between items-center bg-surface-container/50 p-2 rounded">
+<span class="text-[10px] text-slate-500 uppercase">Revenue Range</span>
+<span class="text-sm font-mono tabular-nums text-on-surface">AED 20M–50M</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container/50 p-2 rounded">
+<span class="text-[10px] text-slate-500 uppercase">Deal Type</span>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase">Equity Raise</span>
+</div>
+</div>
+<button class="w-full py-3 gold-gradient text-on-primary font-bold text-xs uppercase tracking-widest rounded-lg active:scale-95 transition-transform">Request NDA</button>
+<p class="text-[10px] text-slate-500 text-center mt-4 tabular-nums">Listed: 12 Oct 2023</p>
+</div>
+<!-- Card 2: Hover State -->
+<div class="bg-surface-container-high p-6 rounded-xl flex flex-col h-full shadow-[0_20px_40px_rgba(7,19,37,0.4)] border border-primary/10 scale-[1.02] transition-transform">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-tertiary/10 text-tertiary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+                            Sharia Compliant
+                        </span>
+<div class="w-10 h-10 rounded-full border-2 border-secondary bg-secondary/10 flex items-center justify-center text-[10px] font-bold tabular-nums text-secondary">
+                            94%
+                        </div>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-primary/20 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">solar_power</span>
+</div>
+<div>
+<p class="text-xs text-primary uppercase tracking-widest">Renewables — KSA</p>
+<div class="h-4 w-28 bg-slate-700/50 rounded animate-pulse mt-1"></div>
+</div>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex justify-between items-center bg-surface-container-highest p-2 rounded border border-white/5">
+<span class="text-[10px] text-slate-400 uppercase">Revenue Range</span>
+<span class="text-sm font-mono tabular-nums text-on-surface">USD 15M–30M</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container-highest p-2 rounded border border-white/5">
+<span class="text-[10px] text-slate-400 uppercase">Deal Type</span>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase">Debt Financing</span>
+</div>
+</div>
+<button class="w-full py-3 gold-gradient text-on-primary font-bold text-xs uppercase tracking-widest rounded-lg shadow-lg shadow-primary/20">Request NDA</button>
+<p class="text-[10px] text-slate-500 text-center mt-4 tabular-nums">Listed: 08 Nov 2023</p>
+</div>
+<!-- Card 3: NDA-Requested -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col h-full opacity-80">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-tertiary/10 text-tertiary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+                            Sharia Compliant
+                        </span>
+<div class="w-10 h-10 rounded-full border-2 border-slate-700 flex items-center justify-center text-[10px] font-bold tabular-nums text-slate-500">
+                            72%
+                        </div>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">factory</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase tracking-widest">Industry — Oman</p>
+<div class="h-4 w-32 bg-slate-700/50 rounded mt-1"></div>
+</div>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex justify-between items-center bg-surface-container/50 p-2 rounded">
+<span class="text-[10px] text-slate-500 uppercase">Revenue Range</span>
+<span class="text-sm font-mono tabular-nums text-on-surface">OMR 10M–25M</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container/50 p-2 rounded">
+<span class="text-[10px] text-slate-500 uppercase">Deal Type</span>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase">Equity Raise</span>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-highest text-slate-500 font-bold text-xs uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                        NDA Requested
+                    </button>
+<p class="text-[10px] text-slate-500 text-center mt-4 tabular-nums">Requested: 2 mins ago</p>
+</div>
+<!-- Card 4: NDA-Signed (Revealed) -->
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col h-full border border-tertiary/20">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-tertiary/10 text-tertiary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+                            Sharia Compliant
+                        </span>
+<div class="w-10 h-10 rounded-full border-2 border-secondary bg-secondary/5 flex items-center justify-center text-[10px] font-bold tabular-nums text-secondary">
+                            91%
+                        </div>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-surface-container-highest rounded overflow-hidden">
+<img alt="PharmaCorp" class="w-full h-full object-cover" data-alt="minimalist modern corporate logo for a pharmaceutical company with clean lines and blue colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLSRuq4DnY-uprj6S6Qhm3qgTFixsme0_YbLn8MMXE1NJQBIbZ_l7mq4ATDXSef9Pn0_M9G5huqnUW8RZRL3dfSalyCWGgD66OgDc_493stlABMXTl4PKtiu0ZIdvJyoMYEBLkE6S-6X8utHsUEcW73VX1f2vL6oIQhFT_v7BK3cmihjoR-Gntoxr5Z-tILx09EdABIq8_LehtrfonCpLQ5rJXsO-tZFlW9M3_qbNcBfHNExzxxPigYUU-Ij8mGbkzMS_8rAXx0tM"/>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase tracking-widest">Pharma — Qatar</p>
+<h4 class="text-on-surface font-bold">PharmaCorp QSC</h4>
+</div>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex justify-between items-center bg-surface-container/50 p-2 rounded">
+<span class="text-[10px] text-slate-500 uppercase">Revenue Range</span>
+<span class="text-sm font-mono tabular-nums text-on-surface">QAR 100M+</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container/50 p-2 rounded">
+<span class="text-[10px] text-slate-500 uppercase">Deal Type</span>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase">Series B</span>
+</div>
+</div>
+<button class="w-full py-3 border border-primary text-primary hover:bg-primary/5 font-bold text-xs uppercase tracking-widest rounded-lg transition-colors">Enter Deal Room</button>
+<p class="text-[10px] text-tertiary font-semibold text-center mt-4 uppercase">NDA Signed &amp; Verified</p>
+</div>
+</div>
+<!-- RTL Version Preview -->
+<div class="mt-12 p-8 border border-outline-variant/10 rounded-2xl bg-surface-container-lowest/50">
+<p class="text-xs text-slate-500 mb-6 uppercase tracking-widest">RTL Layout Preview (Arabic)</p>
+<div class="flex justify-end" dir="rtl">
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col w-full md:w-[320px] font-['Noto_Sans_Arabic']">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-tertiary/10 text-tertiary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+                                متوافق مع الشريعة
+                            </span>
+<div class="w-10 h-10 rounded-full border-2 border-secondary flex items-center justify-center text-[10px] font-bold tabular-nums text-secondary">
+                                ٨٨٪
+                            </div>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">medical_services</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase tracking-widest">الرعاية الصحية — الإمارات</p>
+<div class="h-4 w-32 bg-slate-700/50 rounded animate-pulse mt-1"></div>
+</div>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex justify-between items-center bg-surface-container/50 p-2 rounded">
+<span class="text-[10px] text-slate-500 uppercase">نطاق الإيرادات</span>
+<span class="text-sm font-mono tabular-nums text-on-surface">٢٠-٥٠ مليون د.إ</span>
+</div>
+<div class="flex justify-between items-center bg-surface-container/50 p-2 rounded">
+<span class="text-[10px] text-slate-500 uppercase">نوع الصفقة</span>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold uppercase">رفع رأس المال</span>
+</div>
+</div>
+<button class="w-full py-3 gold-gradient text-on-primary font-bold text-xs uppercase tracking-widest rounded-lg">طلب اتفاقية عدم الإفصاح</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2 & 3: HEAT INDICATOR & VERIFICATION -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+<!-- Heat Indicator -->
+<section>
+<div class="flex items-center justify-between border-b border-outline-variant/10 pb-4 mb-8">
+<div>
+<h3 class="text-xl font-bold text-on-surface">2. INVESTOR INTENT HEAT INDICATOR</h3>
+<p class="text-sm text-slate-500 font-['Noto_Sans_Arabic'] mt-1" dir="rtl">٢. مؤشر حرارة نية المستثمر</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl space-y-8">
+<div class="flex flex-wrap gap-4">
+<span class="px-4 py-2 bg-slate-800 text-slate-400 rounded-full text-xs font-bold uppercase border border-slate-700">Browse</span>
+<span class="px-4 py-2 bg-blue-900/30 text-blue-400 rounded-full text-xs font-bold uppercase border border-blue-500/20">Engaged</span>
+<span class="px-4 py-2 bg-secondary/20 text-secondary rounded-full text-xs font-bold uppercase border border-secondary/30">Active</span>
+<span class="px-4 py-2 bg-orange-900/30 text-orange-400 rounded-full text-xs font-bold uppercase border border-orange-500/20">Hot</span>
+<span class="px-4 py-2 bg-red-900/30 text-red-400 rounded-full text-xs font-bold uppercase border border-red-500/20">Very Hot</span>
+</div>
+<div class="overflow-hidden">
+<p class="text-xs text-slate-500 mb-4 uppercase font-bold tracking-widest">Data Table Integration</p>
+<div class="space-y-1">
+<div class="flex items-center justify-between p-4 bg-surface-container-highest/30 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-700 flex items-center justify-center text-[10px] font-bold">ABC</div>
+<span class="text-sm font-semibold">ABC Capital Partners</span>
+</div>
+<span class="px-3 py-1 bg-red-900/30 text-red-400 rounded-full text-[10px] font-bold uppercase border border-red-500/20">Very Hot</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-highest/30 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-slate-700 flex items-center justify-center text-[10px] font-bold">GIM</div>
+<span class="text-sm font-semibold">Global Invest Management</span>
+</div>
+<span class="px-3 py-1 bg-blue-900/30 text-blue-400 rounded-full text-[10px] font-bold uppercase border border-blue-500/20">Engaged</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Verification Badges -->
+<section>
+<div class="flex items-center justify-between border-b border-outline-variant/10 pb-4 mb-8">
+<div>
+<h3 class="text-xl font-bold text-on-surface">3. VERIFICATION BADGE SYSTEM</h3>
+<p class="text-sm text-slate-500 font-['Noto_Sans_Arabic'] mt-1" dir="rtl">٣. نظام شارات التحقق</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl flex items-center justify-center min-h-[300px]">
+<div class="w-full max-w-sm bg-surface-container-highest p-6 rounded-2xl border border-white/5 shadow-2xl">
+<div class="flex items-center gap-4 mb-6">
+<div class="relative">
+<img alt="Khalid Al-Mansour" class="w-16 h-16 rounded-full object-cover" data-alt="professional headshot of an executive in a business suit against a dark corporate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_scyeMCDCIpdGbYpKr5CYB1m7xS9hSu5JnrpP4_aq5SFkPqxV5cBQg37zD0-Fy9EQ--9S1KbdFSwE8TrPQmUpXo4LxHeykZQxi5xQaLC_Se_Z5DB1_du9z3WoK_LAxiev0pMfdlGEbq-m_7s2m79BB4u8hj3cAMnOmQ3op0iM3hH4coUrtTEjPvmXlvwmcSroJ91149JtCYqlKB-6Nz3xxake3cZcOh_3eYre3ugWdNJrO9yYbCNWQgLC0p49L9Clfg2PWc7qJpU"/>
+<div class="absolute -bottom-1 -right-1 w-6 h-6 bg-tertiary rounded-full border-2 border-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface">Khalid Al-Mansour</h4>
+<p class="text-xs text-slate-500 uppercase tracking-tighter">Principal Investor — KSA</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-emerald-950/40 text-emerald-400 rounded text-[10px] font-bold border border-emerald-500/20">
+<span class="material-symbols-outlined text-xs">how_to_reg</span> KYC Verified
+                            </span>
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-blue-950/40 text-blue-400 rounded text-[10px] font-bold border border-blue-500/20">
+<span class="material-symbols-outlined text-xs">payments</span> Funds Confirmed
+                            </span>
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-[#0d1e35] text-primary rounded text-[10px] font-bold border border-primary/40">
+<span class="material-symbols-outlined text-xs">account_balance</span> DFSA-Licensed
+                            </span>
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-purple-950/40 text-purple-400 rounded text-[10px] font-bold border border-purple-500/20">
+<span class="material-symbols-outlined text-xs">bolt</span> Active Dealmaker
+                            </span>
+<span class="flex items-center gap-1.5 px-2.5 py-1 bg-tertiary/10 text-tertiary rounded text-[10px] font-bold border border-tertiary/20">
+<span class="material-symbols-outlined text-xs">clock_loader_60</span> Sharia-Preferred
+                            </span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Section 4: NDA STATUS BADGE -->
+<section class="mb-20">
+<div class="flex items-center justify-between border-b border-outline-variant/10 pb-4 mb-8">
+<div>
+<h3 class="text-xl font-bold text-on-surface">4. NDA STATUS BADGE</h3>
+<p class="text-sm text-slate-500 font-['Noto_Sans_Arabic'] mt-1" dir="rtl">٤. شارة حالة اتفاقية عدم الإفصاح</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col items-center gap-4">
+<div class="px-4 py-2 bg-orange-950/40 text-orange-400 border border-orange-500/30 rounded-lg flex items-center gap-2 font-bold text-sm">
+<span class="material-symbols-outlined text-lg">schedule</span>
+                        Pending
+                    </div>
+<span class="text-[10px] text-slate-500 uppercase font-mono">Status: Initialized</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="px-4 py-2 bg-orange-950/40 text-orange-400 border border-orange-500/30 rounded-lg flex items-center gap-2 font-bold text-sm">
+<span class="material-symbols-outlined text-lg">send</span>
+                        Sent
+                    </div>
+<span class="text-[10px] text-slate-500 uppercase font-mono">Out for Signature</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="px-4 py-2 bg-emerald-950/40 text-emerald-400 border border-emerald-500/30 rounded-lg flex items-center gap-2 font-bold text-sm">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Signed
+                    </div>
+<span class="text-[10px] text-slate-500 uppercase font-mono">Execution Complete</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="px-4 py-2 bg-red-950/40 text-red-400 border border-red-500/30 rounded-lg flex items-center gap-2 font-bold text-sm">
+<span class="material-symbols-outlined text-lg">cancel</span>
+                        Expired
+                    </div>
+<span class="text-[10px] text-slate-500 uppercase font-mono">Threshold Reached</span>
+</div>
+</div>
+</section>
+<!-- Section 5: AI INSIGHT BANNER -->
+<section class="mb-20">
+<div class="flex items-center justify-between border-b border-outline-variant/10 pb-4 mb-8">
+<div>
+<h3 class="text-xl font-bold text-on-surface">5. AI INSIGHT BANNER</h3>
+<p class="text-sm text-slate-500 font-['Noto_Sans_Arabic'] mt-1" dir="rtl">٥. لافتة رؤى الذكاء الاصطناعي</p>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Variant 1: Default Text -->
+<div class="bg-surface-container-low border-l-4 border-secondary p-6 rounded-r-xl flex items-center justify-between shadow-lg">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary/20 text-secondary px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest">AI Insight</span>
+<span class="text-[10px] text-slate-500 tabular-nums">Just Now</span>
+</div>
+<p class="text-on-surface text-base">Investor <span class="font-bold">ABC Capital</span> has viewed your data room 4 times in the last 24 hours. High engagement signals imminent inquiry.</p>
+</div>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Variant 2: With CTA -->
+<div class="bg-surface-container-low border-l-4 border-secondary p-6 rounded-r-xl flex items-center justify-between shadow-lg">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary/20 text-secondary px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest">Deal Matching</span>
+</div>
+<p class="text-on-surface text-base">Predictive modeling suggests a 82% alignment with <span class="font-bold">Oasis Sovereign Fund</span> investment criteria.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 bg-secondary text-on-secondary font-bold text-xs uppercase tracking-widest rounded transition-transform active:scale-95">Send Pitch</button>
+<button class="text-slate-500 hover:text-white">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</div>
+<!-- Variant 3: Dismissed / Mini State -->
+<div class="flex justify-end">
+<div class="bg-surface-container-high border-l-4 border-secondary px-4 py-2 rounded-r-lg flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-xs font-bold uppercase tracking-widest text-slate-400">3 Unread AI Insights</span>
+<span class="material-symbols-outlined text-sm text-slate-500">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual FAB Suppression (Hiding as it's a documentation/library page) -->
+</body></html>

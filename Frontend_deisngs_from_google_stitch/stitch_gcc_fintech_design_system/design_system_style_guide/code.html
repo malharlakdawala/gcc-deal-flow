@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Al-Mawarid Financial | Brand Identity System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Sans+Arabic:wght@400;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tabular-nums { font-variant-numeric: tabular-nums; }
+        .glass-effect { backdrop-filter: blur(20px); }
+        .redacted-blur { filter: blur(8px); }
+        body { font-family: 'Inter', 'Noto Sans Arabic', sans-serif; background-color: #071325; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#1f2a3d",
+                      "surface-variant": "#2a3548",
+                      "surface-container-highest": "#2a3548",
+                      "on-tertiary": "#003732",
+                      "surface-container": "#142032",
+                      "on-secondary": "#002e6a",
+                      "on-secondary-fixed-variant": "#004395",
+                      "secondary": "#adc6ff",
+                      "on-tertiary-container": "#004942",
+                      "inverse-surface": "#d7e3fc",
+                      "on-error": "#690005",
+                      "tertiary-container": "#4dbdb0",
+                      "on-primary-container": "#503d00",
+                      "surface-tint": "#e6c364",
+                      "background": "#071325",
+                      "tertiary-fixed-dim": "#6bd8cb",
+                      "on-secondary-container": "#e6ecff",
+                      "surface-container-low": "#101c2e",
+                      "on-primary-fixed-variant": "#584400",
+                      "surface": "#071325",
+                      "on-tertiary-fixed": "#00201d",
+                      "on-tertiary-fixed-variant": "#005049",
+                      "error": "#ffb4ab",
+                      "outline": "#99907e",
+                      "surface-bright": "#2e394d",
+                      "primary-fixed-dim": "#e6c364",
+                      "inverse-on-surface": "#253144",
+                      "error-container": "#93000a",
+                      "tertiary-fixed": "#89f5e7",
+                      "inverse-primary": "#755b00",
+                      "primary-container": "#c9a84c",
+                      "on-surface": "#d7e3fc",
+                      "on-secondary-fixed": "#001a42",
+                      "tertiary": "#6cd9cb",
+                      "primary-fixed": "#ffe08f",
+                      "secondary-container": "#0566d9",
+                      "outline-variant": "#4d4637",
+                      "surface-container-lowest": "#030e20",
+                      "surface-dim": "#071325",
+                      "on-background": "#d7e3fc",
+                      "primary": "#e6c364",
+                      "on-surface-variant": "#d0c5b2",
+                      "secondary-fixed": "#d8e2ff",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "on-primary-fixed": "#241a00",
+                      "on-error-container": "#ffdad6",
+                      "on-primary": "#3d2e00"
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="text-on-surface antialiased bg-background overflow-hidden flex h-screen">
+<!-- SideNavBar Integration -->
+<aside class="fixed left-0 top-0 h-screen w-[240px] border-r border-primary/10 bg-background flex flex-col h-full p-6 space-y-8 z-50">
+<div class="flex items-center space-x-3 mb-4">
+<div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h1 class="text-primary font-semibold text-sm leading-tight">Sovereign Ledger</h1>
+<p class="text-slate-500 text-[11px] uppercase tracking-wider">Private Concierge</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<div class="text-primary bg-white/5 rounded-lg font-medium flex items-center px-4 py-3 space-x-3 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="account_balance">account_balance</span>
+<span class="text-[15px]">Wealth Overview</span>
+</div>
+<div class="text-slate-400 hover:bg-primary/10 hover:text-primary rounded-lg flex items-center px-4 py-3 space-x-3 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="vape_free">vape_free</span>
+<span class="text-[15px]">Digital Vault</span>
+</div>
+<div class="text-slate-400 hover:bg-primary/10 hover:text-primary rounded-lg flex items-center px-4 py-3 space-x-3 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="psychology">psychology</span>
+<span class="text-[15px]">Market Intelligence</span>
+</div>
+<div class="text-slate-400 hover:bg-primary/10 hover:text-primary rounded-lg flex items-center px-4 py-3 space-x-3 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="crescent">circle</span>
+<span class="text-[15px]">Sharia Reports</span>
+</div>
+</nav>
+<div class="pt-6 border-t border-white/5 space-y-2">
+<div class="text-slate-400 hover:bg-primary/10 hover:text-primary rounded-lg flex items-center px-4 py-3 space-x-3 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined text-lg" data-icon="visibility_off">visibility_off</span>
+<span class="text-[15px]">Privacy Mode</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] flex-1 h-screen overflow-y-auto bg-surface-container-lowest">
+<!-- TopNavBar Integration -->
+<header class="bg-[#071325]/60 backdrop-blur-xl sticky top-0 z-40 flex justify-between items-center w-full px-8 py-4 bg-gradient-to-b from-[#071325] to-transparent shadow-[0_32px_64px_-15px_rgba(7,19,37,0.3)]">
+<div class="flex items-center space-x-8">
+<span class="text-xl font-bold tracking-tight text-primary">The Sovereign Ledger</span>
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-primary border-b-2 border-primary pb-1 text-sm font-medium" href="#">System Guide</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Compliance</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">Assets</a>
+</nav>
+</div>
+<div class="flex items-center space-x-6">
+<div class="bg-white/5 px-3 py-1.5 rounded-full border border-white/10 flex items-center space-x-2 cursor-pointer active:scale-95 transition-all">
+<span class="text-[12px] font-bold text-primary">EN</span>
+<div class="h-3 w-[1px] bg-white/20"></div>
+<span class="text-[12px] font-bold text-slate-500">AR</span>
+</div>
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer" data-icon="settings">settings</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Portrait of a senior financial advisor in a professional navy suit, soft office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6ZlndzmN5EEKdWASmVNz7ra7BtxLsL5uK_M07XdPOxZFlR7LOcGqQpKQNucOTnz-qopbigIahVgJ5WyW7unT1Dy15CPHz4wlilxmdsnKThhQGWaWeJZDX5N5iQpSDBefr87M90qfQrPCYFZHqeobxi2FKvfHSAEn9NPKEUtzflGa37O0KFHP65leeX6OwkaTDWoBysvIAkzqgINreJXXzFk6AhJJ3Ayt1qR21iqM8lRGb4FYNcmeFu8e5vH2yXq4wJ5s46EnDwOA"/>
+</div>
+</div>
+</div>
+</header>
+<div class="p-10 space-y-16">
+<!-- Section 1: Color Swatches -->
+<section>
+<div class="mb-8">
+<h2 class="text-3xl font-semibold text-on-surface mb-2 tracking-tight">Identity &amp; Atmosphere</h2>
+<p class="text-on-surface-variant max-w-2xl">The tonal depth of Al-Mawarid is anchored in midnight blues and the prestigious Desert Gold, creating a digital vault experience.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+<div class="space-y-3">
+<div class="h-24 w-full bg-background rounded-xl border border-white/10 shadow-lg"></div>
+<p class="text-sm font-medium">Primary Navy <span class="block text-xs font-mono text-slate-500">#071325</span></p>
+</div>
+<div class="space-y-3">
+<div class="h-24 w-full bg-surface-container-low rounded-xl border border-white/10 shadow-lg"></div>
+<p class="text-sm font-medium">Surface Low <span class="block text-xs font-mono text-slate-500">#101C2E</span></p>
+</div>
+<div class="space-y-3">
+<div class="h-24 w-full bg-primary rounded-xl shadow-[0_0_20px_rgba(230,195,100,0.3)]"></div>
+<p class="text-sm font-medium text-primary">Desert Gold <span class="block text-xs font-mono text-slate-500">#E6C364</span></p>
+</div>
+<div class="space-y-3">
+<div class="h-24 w-full bg-secondary-container rounded-xl shadow-lg"></div>
+<p class="text-sm font-medium text-secondary">Intelligence Blue <span class="block text-xs font-mono text-slate-500">#0566D9</span></p>
+</div>
+<div class="space-y-3">
+<div class="h-24 w-full bg-tertiary-container rounded-xl shadow-lg"></div>
+<p class="text-sm font-medium text-tertiary">Sharia Teal <span class="block text-xs font-mono text-slate-500">#0D9488</span></p>
+</div>
+</div>
+</section>
+<!-- Section 2: Typography & Editorial -->
+<section class="grid md:grid-cols-2 gap-12">
+<div>
+<h2 class="text-3xl font-semibold text-on-surface mb-6 tracking-tight">Typography Scale</h2>
+<div class="space-y-8 bg-surface-container-low p-8 rounded-2xl border border-white/5">
+<div>
+<span class="text-xs font-mono text-slate-500 block mb-2">Display Large / Inter 600</span>
+<h1 class="text-5xl font-semibold tabular-nums">$14,250,000.00</h1>
+</div>
+<div>
+<span class="text-xs font-mono text-slate-500 block mb-2">Arabic Alignment / Noto Sans 600</span>
+<h2 class="text-3xl font-semibold leading-relaxed" dir="rtl">الموارد المالية السيادية</h2>
+</div>
+<div>
+<span class="text-xs font-mono text-slate-500 block mb-2">Data Precision / JetBrains Mono</span>
+<p class="font-mono text-lg text-primary tracking-tighter">AE76 0230 0000 1234 5678 901</p>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-3xl font-semibold text-on-surface mb-6 tracking-tight">Button Variants</h2>
+<div class="flex flex-wrap gap-4 p-8 bg-surface-container-low rounded-2xl border border-white/5 items-center">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-3 rounded-xl font-semibold shadow-lg active:scale-95 transition-all">
+                            Initiate Transaction
+                        </button>
+<button class="border border-outline text-on-surface px-6 py-3 rounded-xl font-semibold hover:bg-white/5 active:scale-95 transition-all">
+                            Export Ledger
+                        </button>
+<button class="bg-error-container text-on-error-container px-6 py-3 rounded-xl font-semibold hover:bg-red-900 transition-all">
+                            Terminate Access
+                        </button>
+</div>
+<div class="mt-8 flex gap-4">
+<div class="bg-secondary-container/20 border border-secondary-container text-secondary px-4 py-1 rounded-full flex items-center space-x-2">
+<span class="text-[10px] font-bold uppercase tracking-widest">AI Forecast</span>
+</div>
+<div class="bg-tertiary-container/20 border border-tertiary-container text-tertiary px-4 py-1 rounded-full flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm" data-icon="crescent">circle</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Sharia Compliant</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Card Architecture (Bento Style) -->
+<section>
+<h2 class="text-3xl font-semibold text-on-surface mb-8 tracking-tight">Component Architecture</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Standard Wealth Card -->
+<div class="bg-surface-container-low p-8 rounded-2xl relative overflow-hidden group">
+<div class="flex justify-between items-start mb-12">
+<div>
+<p class="text-slate-500 text-sm mb-1">Total Equity</p>
+<h3 class="text-3xl font-bold tabular-nums">$8,241,000</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div class="flex items-center text-emerald-400 text-sm font-medium">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="trending_up">trending_up</span>
+                            +12.4% this quarter
+                        </div>
+</div>
+<!-- AI-Augmented Intelligence Card -->
+<div class="bg-surface-container-low p-8 rounded-2xl relative overflow-hidden border-l-4 border-secondary-container">
+<div class="flex justify-between items-start mb-8">
+<div class="bg-secondary-container/10 text-secondary-container px-2 py-0.5 rounded text-[10px] font-bold">AI INSIGHT</div>
+<span class="material-symbols-outlined text-secondary" data-icon="psychology">psychology</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                            Predictive analysis suggests a <span class="text-secondary font-semibold">high liquidity window</span> in Q3 based on current Brent Crude fluctuations.
+                        </p>
+<button class="text-secondary text-sm font-semibold flex items-center hover:underline">
+                            View Forecast Model
+                            <span class="material-symbols-outlined text-sm ml-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Anonymized/Privacy Mode Card -->
+<div class="bg-surface-container-low p-8 rounded-2xl relative overflow-hidden">
+<div class="flex justify-between items-center mb-10">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-slate-800 redacted-blur"></div>
+<div class="h-4 w-24 bg-slate-800 rounded redacted-blur"></div>
+</div>
+<span class="material-symbols-outlined text-slate-500" data-icon="visibility_off">visibility_off</span>
+</div>
+<div class="space-y-4">
+<div class="h-8 w-full bg-slate-800/50 rounded redacted-blur"></div>
+<div class="h-4 w-2/3 bg-slate-800/30 rounded redacted-blur"></div>
+</div>
+<p class="mt-8 text-xs text-slate-500 italic">Privacy Mode: Active</p>
+</div>
+</div>
+</section>
+<!-- Section 4: GCC Compliance Features -->
+<section class="bg-surface-container-high rounded-3xl p-10 border border-primary/10 overflow-hidden relative">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+<div class="relative z-10 flex flex-col md:flex-row gap-12">
+<div class="md:w-1/2">
+<div class="inline-flex items-center space-x-2 bg-tertiary-container/10 text-tertiary px-3 py-1 rounded-full mb-6">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+<span class="text-xs font-bold uppercase tracking-widest">GCC Regulatory Standard</span>
+</div>
+<h2 class="text-4xl font-semibold mb-6 tracking-tight">Compliance &amp; Sharia Governance</h2>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                            Our system integrates direct reporting for ADGM, DIFC, and QFC regulations. Automated Zakat calculations and Sharia-compliant asset filtering are native to the core ledger.
+                        </p>
+<div class="space-y-4">
+<div class="flex items-center space-x-3 text-on-surface">
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Real-time AML/KYC Monitoring</span>
+</div>
+<div class="flex items-center space-x-3 text-on-surface">
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Automated Sharia Certificate Generation</span>
+</div>
+<div class="flex items-center space-x-3 text-on-surface">
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Multi-Jurisdiction Tax Reporting</span>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 grid grid-cols-2 gap-4">
+<div class="bg-background/40 p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="crescent">circle</span>
+</div>
+<span class="text-xs font-bold text-slate-500 uppercase mb-1">Status</span>
+<span class="text-tertiary font-semibold">100% Halal</span>
+</div>
+<div class="bg-background/40 p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="gavel">gavel</span>
+</div>
+<span class="text-xs font-bold text-slate-500 uppercase mb-1">Audit</span>
+<span class="text-on-surface font-semibold">Q2 Ready</span>
+</div>
+<div class="bg-background/40 p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center col-span-2">
+<div class="flex justify-between w-full mb-4 px-4">
+<span class="text-sm font-medium">Zakat Provision</span>
+<span class="text-sm tabular-nums text-primary font-bold">$214,000.00</span>
+</div>
+<div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<footer class="p-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm gap-6">
+<div class="flex items-center space-x-6">
+<span>© 2024 Al-Mawarid Financial Services</span>
+<span class="w-1 h-1 bg-slate-700 rounded-full"></span>
+<span>Regulated by DFSA</span>
+</div>
+<div class="flex space-x-8">
+<a class="hover:text-primary transition-colors" href="#">Legal Vault</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Charter</a>
+<a class="hover:text-primary transition-colors" href="#">Cybersecurity Protocol</a>
+</div>
+</footer>
+</main>
+</body></html>

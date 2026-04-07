@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Business Details | Al-Mawarid Financial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+Arabic:wght@400;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#adc6ff",
+                        "surface-container-low": "#101c2e",
+                        "surface-container": "#142032",
+                        "inverse-on-surface": "#253144",
+                        "on-background": "#d7e3fc",
+                        "primary-fixed-dim": "#e6c364",
+                        "primary-fixed": "#ffe08f",
+                        "surface-container-lowest": "#030e20",
+                        "surface-dim": "#071325",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-primary-container": "#503d00",
+                        "tertiary-fixed": "#89f5e7",
+                        "outline-variant": "#4d4637",
+                        "primary": "#e6c364",
+                        "tertiary-container": "#4dbdb0",
+                        "primary-container": "#c9a84c",
+                        "on-primary": "#3d2e00",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#004395",
+                        "inverse-primary": "#755b00",
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "surface-container-highest": "#2a3548",
+                        "on-secondary": "#002e6a",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-container": "#004942",
+                        "on-tertiary": "#003732",
+                        "secondary-fixed": "#d8e2ff",
+                        "secondary-container": "#0566d9",
+                        "on-secondary-container": "#e6ecff",
+                        "on-surface-variant": "#d0c5b2",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "surface-variant": "#2a3548",
+                        "error": "#ffb4ab",
+                        "tertiary": "#6cd9cb",
+                        "surface-container-high": "#1f2a3d",
+                        "surface-bright": "#2e394d",
+                        "surface": "#071325",
+                        "on-primary-fixed-variant": "#584400",
+                        "on-surface": "#d7e3fc",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#99907e",
+                        "on-secondary-fixed": "#001a42",
+                        "inverse-surface": "#d7e3fc",
+                        "background": "#071325",
+                        "surface-tint": "#e6c364",
+                        "on-tertiary-fixed": "#00201d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "Noto Sans Arabic"],
+                        "body": ["Inter", "Noto Sans Arabic"],
+                        "label": ["Inter", "Noto Sans Arabic"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(42, 53, 72, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, #101c2e 25%, #1f2a3d 50%, #101c2e 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .gold-sheen {
+            background: linear-gradient(135deg, #e6c364 0%, #c9a84c 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-[#071325] border-b border-white/10 shadow-xl flex justify-between items-center px-8 py-4">
+<div class="text-xl font-bold text-[#E6C364] tracking-tight font-['Inter']">Al-Mawarid Financial</div>
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-slate-400 font-medium hover:text-white transition-colors font-['Inter']" href="#">Dashboard</a>
+<a class="text-slate-400 font-medium hover:text-white transition-colors font-['Inter']" href="#">Help</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-400 hover:text-[#E6C364] transition-all">language</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high border border-white/10 overflow-hidden">
+<img alt="User avatar" data-alt="professional portrait of a high-net-worth individual with soft studio lighting and dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK8uxN-LfnmBcy8dyV9vtv45I-diXKP0vrdPcvSpfAfN4LOS5XmxnbdUlI9nGy679lKdl_jRln8gqbuByPgZms5iXRK7qgUcv80vDdyKsbDFxd44l5Vj53xQfISYi5T-z8oRd_1mfdC8PXSSBoKnjFL3-2mJSZsMoq_HrQ2vUraNpYqlyFhIqNA2XfxmMWvIzUJUzv1chSnkhq4SqW5BgtZH16jZttKwNPzPSNALfnyw7u6_iET5ewYD55zTNWsTObM9n7Aoo7YoE"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Shared Component - Specific Active State: Company Profile) -->
+<aside class="fixed left-0 top-0 h-full w-64 border-r border-white/5 bg-[#071325]/60 backdrop-blur-xl flex flex-col h-screen pt-20 z-40 shadow-[32px_0_32px_-16px_rgba(7,19,37,0.5)]">
+<div class="px-6 py-4 mb-4">
+<h2 class="text-[#E6C364] font-bold font-['Inter'] uppercase tracking-widest text-xs">Onboarding</h2>
+<p class="text-slate-500 text-[10px] tracking-[0.2em] uppercase mt-1">The Sovereign Ledger</p>
+</div>
+<nav class="flex-1">
+<div class="space-y-1">
+<!-- Step 1: Completed -->
+<div class="flex items-center px-6 py-3 text-slate-500 font-medium text-xs font-['Inter'] uppercase tracking-widest group">
+<span class="material-symbols-outlined text-tertiary mr-3 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Company Profile</span>
+</div>
+<!-- Step 2: Active -->
+<div class="flex items-center px-6 py-3 text-[#E6C364] border-r-4 border-[#E6C364] bg-gradient-to-r from-[#E6C364]/10 to-transparent font-bold text-xs font-['Inter'] uppercase tracking-widest">
+<span class="material-symbols-outlined mr-3 text-lg">business</span>
+<span>Director Details</span>
+</div>
+<!-- Future Steps -->
+<div class="flex items-center px-6 py-3 text-slate-700 font-medium text-xs font-['Inter'] uppercase tracking-widest">
+<span class="material-symbols-outlined mr-3 text-lg">account_balance</span>
+<span>UBO Declaration</span>
+</div>
+<div class="flex items-center px-6 py-3 text-slate-700 font-medium text-xs font-['Inter'] uppercase tracking-widest">
+<span class="material-symbols-outlined mr-3 text-lg">description</span>
+<span>Financial Documents</span>
+</div>
+<div class="flex items-center px-6 py-3 text-slate-700 font-medium text-xs font-['Inter'] uppercase tracking-widest">
+<span class="material-symbols-outlined mr-3 text-lg">fact_check</span>
+<span>Final Review</span>
+</div>
+</div>
+</nav>
+<div class="p-6 border-t border-white/5">
+<div class="flex items-center gap-3 text-slate-500 text-[10px] tracking-widest uppercase hover:text-[#E6C364]/70 cursor-pointer transition-all mb-4">
+<span class="material-symbols-outlined text-base">security</span>
+<span>Privacy Policy</span>
+</div>
+<div class="flex items-center gap-3 text-slate-500 text-[10px] tracking-widest uppercase hover:text-[#E6C364]/70 cursor-pointer transition-all">
+<span class="material-symbols-outlined text-base">contact_support</span>
+<span>Support</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-32 px-12 min-h-screen">
+<div class="max-w-4xl mx-auto">
+<!-- Progress Header -->
+<div class="mb-12">
+<div class="flex justify-between items-end mb-4">
+<div>
+<h1 class="text-3xl font-bold text-on-surface tracking-tight mb-2">Business Details</h1>
+<p class="text-on-surface-variant text-sm">Please provide the structural details for the legal entity.</p>
+</div>
+<div class="text-right">
+<span class="text-xs font-semibold text-primary uppercase tracking-widest block mb-1">Step 2 of 6 | 33% complete</span>
+<span class="text-[10px] text-slate-500 italic flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-sm">timer</span> ~10 minutes remaining
+                        </span>
+</div>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-1/3 gold-sheen rounded-full"></div>
+</div>
+</div>
+<!-- Onboarding Form Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Form Section -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Form Field: Company Name (Bilingual) -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden group">
+<div class="flex justify-between items-center mb-4">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Company Name / اسم الشركة</label>
+<div class="flex items-center bg-surface-container-highest p-0.5 rounded-full">
+<button class="px-3 py-1 text-[10px] font-bold rounded-full bg-primary text-on-primary">EN</button>
+<button class="px-3 py-1 text-[10px] font-bold rounded-full text-slate-500">AR</button>
+</div>
+</div>
+<div class="shimmer h-12 w-full rounded-lg opacity-40"></div>
+<p class="text-[10px] text-slate-600 mt-2 italic">Legal name as stated on the trade license.</p>
+</div>
+<!-- Row 2: License & Year -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container-low rounded-xl p-6 group transition-all hover:bg-surface-container">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Trade License Number</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface font-['JetBrains_Mono'] placeholder:text-slate-700" placeholder="e.g. 123456/A" type="text"/>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 group transition-all hover:bg-surface-container">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Incorporation Year</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface font-['JetBrains_Mono'] placeholder:text-slate-700" placeholder="2024" type="number"/>
+</div>
+</div>
+<!-- Row 3: Country & Sector -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container-low rounded-xl p-6 group transition-all hover:bg-surface-container">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Country (GCC)</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface appearance-none">
+<option class="bg-surface-container">United Arab Emirates</option>
+<option class="bg-surface-container">Saudi Arabia</option>
+<option class="bg-surface-container">Qatar</option>
+<option class="bg-surface-container">Kuwait</option>
+<option class="bg-surface-container">Oman</option>
+<option class="bg-surface-container">Bahrain</option>
+</select>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 group transition-all hover:bg-surface-container relative">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Sector (60 Taxonomies)</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface appearance-none">
+<option class="bg-surface-container">Financial Services &amp; Fintech</option>
+<option class="bg-surface-container">Energy &amp; Infrastructure</option>
+<option class="bg-surface-container">E-commerce &amp; Retail</option>
+<option class="bg-surface-container">Aeronautics</option>
+</select>
+<div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none">
+<span class="material-symbols-outlined text-slate-600">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Row 4: Sub-sector & Website -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container-low rounded-xl p-6 group transition-all hover:bg-surface-container">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Sub-sector</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface placeholder:text-slate-700" placeholder="Wealth Management" type="text"/>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 group transition-all hover:bg-surface-container">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Website URL</label>
+<div class="flex items-center">
+<span class="text-slate-600 mr-2 text-sm font-['JetBrains_Mono']">https://</span>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface placeholder:text-slate-700 font-['JetBrains_Mono']" placeholder="al-mawarid.ae" type="text"/>
+</div>
+</div>
+</div>
+<!-- Row 5: Employee Count & HQ City -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container-low rounded-xl p-6 group transition-all hover:bg-surface-container">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">Employee Count Range</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface appearance-none">
+<option class="bg-surface-container">1 - 50</option>
+<option class="bg-surface-container">51 - 200</option>
+<option class="bg-surface-container">201 - 1,000</option>
+<option class="bg-surface-container">1,000+</option>
+</select>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 group transition-all hover:bg-surface-container">
+<label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-2">HQ City</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface placeholder:text-slate-700" placeholder="Dubai" type="text"/>
+</div>
+</div>
+</div>
+<!-- AI Insights Sidebar (Visual Polish) -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-surface-container-low rounded-xl border-l-4 border-secondary p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-6xl">auto_awesome</span>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary text-sm">auto_awesome</span>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">AI Intelligence</span>
+</div>
+<h4 class="text-sm font-semibold text-white mb-2">Compliance Forecasting</h4>
+<p class="text-xs text-slate-400 leading-relaxed">
+                            Based on your sector selection, the UBO Declaration (Step 3) will require specific AML documentation from the Dubai Financial Services Authority.
+                        </p>
+<div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+<span class="text-[10px] text-slate-500">Readiness Score</span>
+<span class="text-secondary font-['JetBrains_Mono'] text-xs font-bold">88%</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 group transition-all">
+<h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Verification Map</h4>
+<div class="aspect-square rounded-lg bg-surface-container-highest relative overflow-hidden">
+<img alt="Map of Dubai Finance District" class="w-full h-full object-cover grayscale brightness-50" data-alt="stylized architectural map of dubai financial district at night with glowing blue and gold light paths" data-location="Dubai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUJ9vbGWi6r7BsEsfo4E23zqPQCRXgizRC3SaPUb2dce-rBLZSRcx0YYxsC0k4iBTWj-ooQNeN9wpL6qQp5RnkRU5lX1aGx1tMhbyoZF-gbWCE4N32jqiPuT53YtwWynO6mZh6KnnwqWiuN98PDzcHvY-cWJ9NR6NaVJvKMKXYsWJ14Ug7rFfpZmyV0VcpkT-7z-X4A46aFVJfwmo5VbXdOmTNBcVBosqzH0S3yiFKvzsmEKFv_YCiaJA21gAVq30bbAXxiEyMwBs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="text-xs font-bold text-white block">Regional Node</span>
+<span class="text-[10px] text-slate-400">DIFC, Gate Avenue</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Controls -->
+<footer class="fixed bottom-0 left-64 right-0 bg-[#071325]/80 backdrop-blur-xl border-t border-white/5 px-12 py-6 z-50">
+<div class="max-w-4xl mx-auto flex items-center justify-between">
+<button class="flex items-center gap-2 text-slate-400 hover:text-white transition-all text-xs font-bold uppercase tracking-widest px-4 py-2 group">
+<span class="material-symbols-outlined text-base group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                Back
+            </button>
+<div class="flex items-center gap-8">
+<a class="text-[10px] font-bold text-slate-500 hover:text-primary uppercase tracking-widest transition-all" href="#">Save &amp; Continue Later</a>
+<button class="gold-sheen text-on-primary font-bold text-xs uppercase tracking-widest px-10 py-3 rounded-lg shadow-[0_4px_20px_rgba(230,195,100,0.2)] hover:scale-105 active:scale-95 transition-all">
+                    Next Step
+                </button>
+</div>
+</div>
+</footer>
+</body></html>

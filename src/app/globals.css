@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* === Surface & Background === */
+  --color-background: #071325;
+  --color-surface: #071325;
+  --color-surface-dim: #071325;
+  --color-surface-bright: #2e394d;
+  --color-surface-container-lowest: #030e20;
+  --color-surface-container-low: #101c2e;
+  --color-surface-container: #142032;
+  --color-surface-container-high: #1f2a3d;
+  --color-surface-container-highest: #2a3548;
+  --color-surface-variant: #2a3548;
+  --color-surface-tint: #e6c364;
+
+  /* === Primary (Gold) === */
+  --color-primary: #e6c364;
+  --color-primary-container: #c9a84c;
+  --color-primary-fixed: #ffe08f;
+  --color-primary-fixed-dim: #e6c364;
+  --color-on-primary: #3d2e00;
+  --color-on-primary-container: #503d00;
+  --color-on-primary-fixed: #241a00;
+  --color-on-primary-fixed-variant: #584400;
+  --color-inverse-primary: #755b00;
+
+  /* === Secondary (AI Electric Blue) === */
+  --color-secondary: #adc6ff;
+  --color-secondary-container: #0566d9;
+  --color-secondary-fixed: #d8e2ff;
+  --color-secondary-fixed-dim: #adc6ff;
+  --color-on-secondary: #002e6a;
+  --color-on-secondary-container: #e6ecff;
+  --color-on-secondary-fixed-variant: #004395;
+
+  /* === Tertiary (Sharia Teal) === */
+  --color-tertiary: #6cd9cb;
+  --color-tertiary-container: #4dbdb0;
+  --color-tertiary-fixed: #89f5e7;
+  --color-tertiary-fixed-dim: #6bd8cb;
+  --color-on-tertiary: #003732;
+  --color-on-tertiary-container: #004942;
+  --color-on-tertiary-fixed: #00201d;
+  --color-on-tertiary-fixed-variant: #005049;
+
+  /* === Error === */
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+
+  /* === Text & Outline === */
+  --color-on-background: #d7e3fc;
+  --color-on-surface: #d7e3fc;
+  --color-on-surface-variant: #d0c5b2;
+  --color-outline: #99907e;
+  --color-outline-variant: #4d4637;
+
+  /* === Inverse === */
+  --color-inverse-surface: #d7e3fc;
+  --color-inverse-on-surface: #253144;
+
+  /* === Font Families === */
+  --font-headline: 'Inter', 'Noto Sans Arabic', sans-serif;
+  --font-body: 'Inter', 'Noto Sans Arabic', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* === Base Styles === */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-on-background);
+  font-family: var(--font-body);
+}
+
+/* === Custom Utilities === */
+@utility glass-panel {
+  backdrop-filter: blur(20px);
+  background: rgba(42, 53, 72, 0.6);
+}
+
+@utility gold-gradient {
+  background: linear-gradient(135deg, #e6c364 0%, #c9a84c 100%);
+}
+
+@utility sunken-shadow {
+  box-shadow: 0 32px 64px -12px rgba(7, 19, 37, 0.6);
+}
+
+@utility ai-glow {
+  box-shadow: 0 0 15px rgba(173, 198, 255, 0.15);
+}
+
+@utility premium-glow {
+  box-shadow: 0 0 20px rgba(230, 195, 100, 0.2);
+}
+
+@utility tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility redacted-blur {
+  filter: blur(8px);
+}
+
+@utility ghost-border {
+  border: 1px solid rgba(77, 70, 55, 0.15);
 }

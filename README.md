@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Sovereign Ledger
+
+Premium deal flow platform for the GCC market. Handles equity fundraising, debt, mergers, acquisitions, and joint ventures across UAE, KSA, Qatar, Bahrain, Oman, and Kuwait.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 with App Router
+- **UI:** React 19, Tailwind CSS 4, Framer Motion, Lucide React
+- **State:** Zustand (client state), TanStack React Query (server state)
+- **Backend:** Supabase (Auth, Postgres, Row Level Security)
+- **Language:** TypeScript 5 (strict mode)
+- **Utilities:** class-variance-authority, clsx, tailwind-merge
+
+## Features
+
+- **3 role-based dashboards** -- Advisor (Kanban pipeline, commission tracker), Company (AI valuation, NDA management, fundraise lifecycle), Investor (deal digest, deal explorer, portfolio tracker)
+- **6-step company onboarding** -- Company type selection, business details, document upload, deal configuration, AI valuation engine, review and go-live
+- **AI valuation engine** -- Bear/base/bull scenario modelling with sensitivity analysis, powered by sector multiples and country premiums
+- **Bilingual support** -- English and Arabic with full RTL layout switching
+- **Sharia compliance tagging** -- Deals and investors can be filtered by Sharia compliance
+- **Landing page** -- Hero, stats bar, flywheel diagram, deal types, how-it-works tabs, CTA
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- A Supabase project
+
+### Installation
+
+```bash
+npm install
+```
+
+### Environment Variables
+
+Copy the example file and fill in your Supabase credentials:
+
+```bash
+cp .env.example .env.local
+```
+
+Required variables:
+
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase anonymous/public key |
+
+### Supabase Setup
+
+1. Create a new Supabase project
+2. Run the migrations in `supabase/` to set up the database schema
+3. Optionally run seed data scripts if provided
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app runs at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/                    # Next.js App Router pages and layouts
+    (auth)/               # Login and register pages
+    (dashboard)/          # Advisor, company, and investor dashboards
+    (onboarding)/         # 6-step onboarding flow
+    (public)/             # Landing page
+  components/
+    features/             # Domain-specific components (deal cards, kanban, etc.)
+    landing/              # Landing page sections
+    layout/               # Layout utilities (locale provider)
+    onboarding/           # Onboarding step footer
+    ui/                   # Reusable UI primitives (button, card, input, etc.)
+  data/
+    translations/         # EN and AR translation dictionaries
+  hooks/                  # Custom React hooks (auth, locale, valuation)
+  lib/
+    ai.ts                 # AI service interface and mock implementation
+    constants.ts          # Shared constants (countries, sectors, deal types)
+    format.ts             # Currency and date formatting
+    supabase/             # Supabase client, server client, and query modules
+    utils.ts              # Tailwind class merge utility
+  stores/                 # Zustand stores (onboarding, locale)
+  types/                  # TypeScript type definitions
+  middleware.ts           # Auth middleware for route protection
+```
 
-## Learn More
+## Database
 
-To learn more about Next.js, take a look at the following resources:
+The database layer uses Supabase with Postgres. Schema migrations and optional seed data are located in the `supabase/` directory. Row Level Security policies handle authorization at the database level.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |

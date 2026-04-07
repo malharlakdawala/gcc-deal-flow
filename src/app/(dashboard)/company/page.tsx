@@ -282,15 +282,18 @@ function FundraiseDonut() {
   const circumference = 2 * Math.PI * radius;
   const center = size / 2;
 
-  let cumulative = 0;
+  const offsets = donutSegments.reduce<number[]>((acc, seg, i) => {
+    const prev = i === 0 ? 0 : acc[i - 1] + (donutSegments[i - 1].value / total) * circumference;
+    acc.push(prev);
+    return acc;
+  }, []);
 
   return (
     <div className="relative flex items-center justify-center">
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         {donutSegments.map((seg, i) => {
           const segLen = (seg.value / total) * circumference;
-          const offset = circumference - cumulative;
-          cumulative += segLen;
+          const offset = circumference - offsets[i];
 
           return (
             <motion.circle

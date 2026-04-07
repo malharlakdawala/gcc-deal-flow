@@ -6,7 +6,6 @@ import { Card } from "@/components/ui/card";
 import { StatCard } from "@/components/ui/stat-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DonutChart } from "@/components/ui/donut-chart";
 import { DealCard, type DealCardData } from "@/components/features/deal-card";
 import {
   Calendar,

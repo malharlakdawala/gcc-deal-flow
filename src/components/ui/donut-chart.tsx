@@ -27,15 +27,18 @@ function DonutChart({
   const total = segments.reduce((sum, s) => sum + s.value, 0);
   const center = size / 2;
 
-  let cumulativeOffset = 0;
+  const segmentData = segments.reduce<{ segmentLength: number; dashOffset: number }[]>((acc, segment) => {
+    const offset = acc.reduce((sum, s) => sum + s.segmentLength, 0);
+    const segmentLength = (segment.value / total) * circumference;
+    acc.push({ segmentLength, dashOffset: circumference - offset });
+    return acc;
+  }, []);
 
   return (
     <div className={cn("inline-flex flex-col items-center gap-4", className)}>
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         {segments.map((segment, i) => {
-          const segmentLength = (segment.value / total) * circumference;
-          const dashOffset = circumference - cumulativeOffset;
-          cumulativeOffset += segmentLength;
+          const { segmentLength, dashOffset } = segmentData[i];
 
           return (
             <circle
